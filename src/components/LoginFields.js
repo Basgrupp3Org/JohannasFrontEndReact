@@ -27,6 +27,7 @@ export default class Button extends React.Component {
                  onChange={this.handleChange} />
                  <legend>Enter Password:</legend>
                  <input type="password" value={password} onChange={this.handleChange2} />
+                 <input type="submit" />
         </fieldset>
       );
     }
