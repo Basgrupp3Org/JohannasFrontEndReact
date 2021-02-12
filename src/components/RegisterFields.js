@@ -1,9 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import './RegisterFields.css';
+import Button from '../components/Button'
 
 
-export default class Button extends React.Component {
+export default class RegisterFields extends React.Component {
     constructor(props) {
       super(props);
       this.handleChange = this.handleChange.bind(this);
@@ -64,6 +65,7 @@ export default class Button extends React.Component {
       const username = this.state.Username;
       const password = this.state.Password;
       return (
+          <>
         <form onSubmit={this.handleRegister}>
         <label>
           Username:
@@ -74,9 +76,11 @@ export default class Button extends React.Component {
         <input type="password" value={password} onChange={this.handleChange2} />
         </label>
         <input type="submit" value="Submit" />
-        <button className="LoginBtn"><Link to='/login' className="btn btn-primary">{this.state.myVar}</Link>Login</button>
-      </form>
         
+        
+      </form>
+      <Button myVar='GoHome'/>
+      </>
       );
     }
   }

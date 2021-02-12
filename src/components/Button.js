@@ -16,6 +16,8 @@ export default class Button extends Component {
            return <button><Link to='/login' className="btn btn-primary">{this.state.myVar}</Link></button>
         } else if(this.state.myVar === 'Register') {
            return <button><Link to='/register' className="btn btn-primary">{this.state.myVar}</Link></button>
+        } else if (this.state.myVar === 'GoHome') {
+            return <button><Link to='/' className="btn btn-primary">{this.state.myVar}</Link></button>
         }
 
        
