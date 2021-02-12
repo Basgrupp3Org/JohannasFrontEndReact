@@ -14,9 +14,11 @@ import Register from './components/pages/Register'
 
 
 
+
 function App() {
   return (
     <>
+   
     <Router>
     <Switch>      
       <Route path='/home' component={Home} />

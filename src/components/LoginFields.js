@@ -1,4 +1,6 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
+
 
 
 export default class LoginFields extends React.Component {
@@ -7,6 +9,7 @@ export default class LoginFields extends React.Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleChange2 = this.handleChange2.bind(this);
       this.state = {Username: '', Password: ''};
+      
       
     }
   
@@ -19,14 +22,17 @@ export default class LoginFields extends React.Component {
     }
 
     HandleLoginFailOrSuccess = (data) => {
+      
       if(data === false){
           alert("Account does not exist,\ntry again with valid credentials");
       } else if (data === true){
           // insert code för hantering av lyckad inloggning
+         window.location = "/home";
+          
+        
           
       }
   }
-
     handleLogin = (e) => {
       e.preventDefault()
    
@@ -45,7 +51,7 @@ export default class LoginFields extends React.Component {
         body: JSON.stringify(requestObject)
     })
     .then(data => data.json())
-    .then(data =>  { this.HandleLoginFailOrSuccess(data) }) 
+    .then(data =>  { this.HandleLoginFailOrSuccess(data)}) 
     .catch((err) => {
         console.error(err);
     })
