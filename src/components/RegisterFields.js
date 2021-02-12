@@ -47,7 +47,7 @@ export default class Button extends React.Component {
             body: JSON.stringify(requestObject)
         })
         .then(data => data.json())
-        .then(data =>  { console.log(data), this.HandleRegisterFailOrSuccess(data) }) 
+        .then(data =>  { this.HandleRegisterFailOrSuccess(data) }) 
         .catch((err) => {
             console.error(err);
         })
