@@ -28,8 +28,8 @@ export default class Button extends React.Component {
     
         } else if (data === true){
             alert("Account register success!\nLogin to Access Johannas Bank App")
-            let knappen = document.getElementById('LoginBtn')
-            knappen.style.visibility = "visible";
+            
+            
            
         }
     }
@@ -74,7 +74,7 @@ export default class Button extends React.Component {
         <input type="password" value={password} onChange={this.handleChange2} />
         </label>
         <input type="submit" value="Submit" />
-        <button className="LoginBtn"><Link to='/home' className="btn btn-primary">{this.state.myVar}</Link></button>
+        <button className="LoginBtn"><Link to='/login' className="btn btn-primary">{this.state.myVar}</Link>Login</button>
       </form>
         
       );
