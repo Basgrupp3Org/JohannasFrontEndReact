@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default class Button extends React.Component {
+
+export default class LoginFields extends React.Component {
     constructor(props) {
       super(props);
       this.handleChange = this.handleChange.bind(this);
@@ -17,22 +18,61 @@ export default class Button extends React.Component {
         this.setState({Password: e.target.value})
     }
 
-    handleLogin = () => {
-      
+    HandleLoginFailOrSuccess = (data) => {
+      if(data === false){
+          alert("Account does not exist,\ntry again with valid credentials");
+      } else if (data === true){
+          // insert code för hantering av lyckad inloggning
+          
+      }
+  }
+
+    handleLogin = (e) => {
+      e.preventDefault()
+   
+
+    let requestObject = {
+      Username: this.state.Username,
+      Password: this.state.Password,
+        
+    }
+
+    fetch('http://localhost:65424/api/User/Login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestObject)
+    })
+    .then(data => data.json())
+    .then(data =>  { this.HandleLoginFailOrSuccess(data) }) 
+    .catch((err) => {
+        console.error(err);
+    })
+
+    console.log(requestObject)
     }
   
     render() {
       const username = this.state.Username;
       const password = this.state.Password;
       return (
-        <fieldset>
-          <legend>Enter Username:</legend>
-          <input type="text" value={username}
-                 onChange={this.handleChange} />
-                 <legend>Enter Password:</legend>
-                 <input type="password" value={password} onChange={this.handleChange2} />
-                 <input type="submit" onSubmit={this.handleLogin}/>
-        </fieldset>
+          <>
+        <form onSubmit={this.handleLogin}>
+        <label>
+          Username:
+          <input type="text" value={username} onChange={this.handleChange} />
+        </label>
+        <label>
+            Password:
+        <input type="password" value={password} onChange={this.handleChange2} />
+        </label>
+        <input type="submit" value="Submit" />
+        
+        
+      </form>
+     
+      </>
       );
     }
   }
