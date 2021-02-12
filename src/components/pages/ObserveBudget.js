@@ -5,7 +5,8 @@ export default class ObserveBudget extends Component {
     render() {
         return (
         <div>
-                
+                <Navbar />
+                <p>hej från observe budget</p>
         </div>
         )
     }

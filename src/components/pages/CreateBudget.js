@@ -5,7 +5,8 @@ export default class CreateBudget extends Component {
     render() {
         return (
         <div>
-                
+                <Navbar/>
+                <p>hej från create budget</p>
         </div>
         )
     }

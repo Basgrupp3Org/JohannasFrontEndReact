@@ -16,6 +16,10 @@ export default class Button extends React.Component {
     handleChange2(e){
         this.setState({Password: e.target.value})
     }
+
+    handleLogin = () => {
+      
+    }
   
     render() {
       const username = this.state.Username;
@@ -27,7 +31,7 @@ export default class Button extends React.Component {
                  onChange={this.handleChange} />
                  <legend>Enter Password:</legend>
                  <input type="password" value={password} onChange={this.handleChange2} />
-                 <input type="submit" />
+                 <input type="submit" onSubmit={this.handleLogin}/>
         </fieldset>
       );
     }
