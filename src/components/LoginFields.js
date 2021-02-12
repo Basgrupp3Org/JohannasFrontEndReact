@@ -23,10 +23,10 @@ export default class Button extends React.Component {
       return (
         <fieldset>
           <legend>Enter Username:</legend>
-          <input value={username}
+          <input type="text" value={username}
                  onChange={this.handleChange} />
                  <legend>Enter Password:</legend>
-                 <input value={password} onChange={this.handleChange2} />
+                 <input type="password" value={password} onChange={this.handleChange2} />
         </fieldset>
       );
     }
