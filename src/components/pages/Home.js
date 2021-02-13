@@ -1,8 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, useContext } from 'react'
 import Navbar from '../Navbar'
+import {UserContext} from '../UserContext'
 
-export default class Home extends Component {
-    render() {
+
+
+function Home(){
+
+     const user = useContext(UserContext)
+     
+   
         return (
             <>
             <Navbar />
@@ -14,5 +20,7 @@ export default class Home extends Component {
         </>
         )
     }
-}
+
+
+export default Home;
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
+import Home from './pages/Home'
 
 
 
@@ -10,6 +11,10 @@ export default class LoginFields extends React.Component {
       this.handleChange2 = this.handleChange2.bind(this);
       this.state = {Username: '', Password: ''};
       
+      
+    }
+
+    componentDidMount(){
       
     }
   
@@ -27,7 +32,7 @@ export default class LoginFields extends React.Component {
           alert("Account does not exist,\ntry again with valid credentials");
       } else if (data === true){
           // insert code för hantering av lyckad inloggning
-         window.location = "/home";
+        window.location = './home'
           
         
           

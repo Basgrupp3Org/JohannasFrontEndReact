@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../components/Button.css';
-import Login from '../components/pages/Login'
+import Login from './pages/Login'
 import {Link} from 'react-router-dom';
 
 export default class Button extends Component {

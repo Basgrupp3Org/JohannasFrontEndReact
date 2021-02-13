@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Link} from 'react-router-dom';
 import './Navbar.css'
+import {UserContext} from './UserContext'
 
 function Navbar() {
  
-
+    const user = useContext(UserContext)
    
     return (
        
@@ -23,7 +24,13 @@ function Navbar() {
                 <Link to="/observebudget">Observe Budget</Link>
             </li>
             <li>
-                <Link to="/registerpurchase">Register Purchare</Link>
+                <Link to="/registerpurchase">Register Purchase</Link>
+            </li>
+            <li>
+                
+            </li>
+            <li className="userTag">
+                Signed in as: {user}!
             </li>
             
            </ul>

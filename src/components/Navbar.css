@@ -1,3 +1,13 @@
+/* Css for UserTag*/
+
+.userTag{
+  position: relative;
+  color: white;
+  display: block;
+  text-align: right;
+  padding-right: 40px;
+}
+
 /* Add a black background color to the top navigation */
 .nav {
   background-color: #333;
@@ -28,3 +38,4 @@
   background-color: #4CAF50;
   color: white;
 }
+
