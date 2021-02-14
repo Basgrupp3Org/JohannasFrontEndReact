@@ -16,10 +16,10 @@ import {UserContext} from './components/UserContext'
 
 
 
- export default class App extends React.Component {
+  class App extends React.Component {
    constructor(props){
      super(props)
-    this.state = {Username: null}
+    this.state = {Username: 'admin'}
 
    }
 
@@ -30,10 +30,10 @@ import {UserContext} from './components/UserContext'
   
 
   render(){
-    const {Username} = this.state;
+    
     return (
       <>
-     <UserContext.Provider value={Username}>
+     <UserContext.Provider value={this.state.Username}>
       <Router>
       <Switch>      
         <Route path='/home' component={Home} />
@@ -54,5 +54,7 @@ import {UserContext} from './components/UserContext'
   }
   
 }
+
+export default App;
 
 

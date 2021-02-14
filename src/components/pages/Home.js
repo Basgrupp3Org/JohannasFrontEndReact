@@ -1,4 +1,4 @@
-import React, { Component, useContext } from 'react'
+import React, { Component, useContext, useEffect } from 'react'
 import Navbar from '../Navbar'
 import {UserContext} from '../UserContext'
 
@@ -6,8 +6,11 @@ import {UserContext} from '../UserContext'
 
 function Home(){
 
-     const user = useContext(UserContext)
+     const user = useContext(UserContext);
      
+     useEffect(() => {
+        console.log("mouinted with hook")
+     }) 
    
         return (
             <>

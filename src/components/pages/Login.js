@@ -4,7 +4,7 @@ import Button from '../Button'
 
 
 
-export default class Login extends React.Component {
+ class Login extends React.Component {
     constructor(props) {
       super(props);
       this.handleChange = this.handleChange.bind(this);
@@ -14,13 +14,15 @@ export default class Login extends React.Component {
       
     }
 
+    componentWillUnmount(){
+      this.addUserForME();
     
+    }
 
-  //  onTrigger = () => {
-   
-  //    this.props.addUser('hej')
-     
-  //  }
+    addUserForME = () => {
+      this.props.addUser('hello')
+    }
+  
   
     handleChange(e) {
       this.setState({Username: e.target.value});
@@ -36,9 +38,7 @@ export default class Login extends React.Component {
           alert("Account does not exist,\ntry again with valid credentials");
       } else if (data === true){
           // insert code för hantering av lyckad inloggning
-         this.onTrigger = () => {
-           this.props.addUser('hej')
-         }
+      
         window.location = './home'
  
       }
@@ -87,6 +87,7 @@ export default class Login extends React.Component {
         <input type="password" value={password} onChange={this.handleChange2} />
         </label>
         <input type="submit" value="Submit" />
+       
         
         
       </form>
@@ -96,3 +97,5 @@ export default class Login extends React.Component {
       );
     }
   }
+
+  export default Login;
