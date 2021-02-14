@@ -19,13 +19,15 @@ import {UserContext} from './components/UserContext'
   class App extends React.Component {
    constructor(props){
      super(props)
-    this.state = {Username: 'admin'}
+    this.state = {Username: ''}
 
     
 
    }
 
    addUser = (childData) => {
+     
+     
     this.setState({Username: childData})
    }
 

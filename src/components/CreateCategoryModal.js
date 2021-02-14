@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Button, Input } from '@material-ui/core';
@@ -35,6 +35,7 @@ function CreateCategoryModal(){
     const [name, setName] = useState('');
     const [maxSpent, setMaxSpent] = useState('')
     
+    
     useEffect(() => {
         
      }) 
@@ -43,14 +44,19 @@ function CreateCategoryModal(){
         event.peventDefault();
 
         let requestObject = {
-            : this.state.Username,
-            : this.state.Password,
-              
+            
+            MaxSpent: maxSpent,
+            Username: user,
+            Name: name,
+
+
+
+            
           }
       
          
       
-          fetch('http://localhost:65424/api/User/Login', {
+          fetch('http://localhost:65424/api/Category/CreateCategory', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
@@ -58,7 +64,7 @@ function CreateCategoryModal(){
               body: JSON.stringify(requestObject)
           })
           .then(data => data.json())
-          .then(data =>  { this.HandleLoginFailOrSuccess(data)}) 
+          .then(data =>  { console.log(data)}) 
           .catch((err) => {
               console.error(err);
           })

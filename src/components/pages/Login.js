@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Redirect } from 'react-router'
 import Button from '../Button'
 
 
@@ -9,21 +9,22 @@ import Button from '../Button'
       super(props);
       this.handleChange = this.handleChange.bind(this);
       this.handleChange2 = this.handleChange2.bind(this);
-      this.state = {Username: '', Password: ''};
+      this.state = {Username: '', Password: '', redirect: null};
+
 
       
       
       
     }
 
-    componentWillUnmount(){
-      this.addUserForME();
-    
+    componentWillUnmount = () => {
+       this.props.addUser(this.state.Username)
+      console.log('Lyckades KANSKE')
     }
 
-    addUserForME = () => {
-      this.props.addUser('hello')
-    }
+   
+   
+
   
   
     handleChange(e) {
@@ -35,13 +36,15 @@ import Button from '../Button'
     }
 
     HandleLoginFailOrSuccess = (data) => {
+      
      
       if(data === false){
           alert("Account does not exist,\ntry again with valid credentials");
       } else if (data === true){
           // insert code för hantering av lyckad inloggning
-      
-        window.location = './home'
+        
+   
+        this.setState({ redirect: './home'})
  
       }
   }
@@ -77,6 +80,10 @@ import Button from '../Button'
     render() {
       const username = this.state.Username;
       const password = this.state.Password;
+
+      if(this.state.redirect){
+        return <Redirect to={this.state.redirect}/>
+      }
       return (
           <>
         <form onSubmit={this.handleLogin}>
