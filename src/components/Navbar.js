@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import {Link} from 'react-router-dom';
 import './Navbar.css'
 import {UserContext} from './UserContext'
@@ -6,7 +6,11 @@ import {UserContext} from './UserContext'
 function Navbar() {
  
     const user = useContext(UserContext)
-   
+
+    useEffect(() => {
+        console.log("mouinted with hook in navbar")
+     }) 
+
     return (
        
        <nav className="nav">

@@ -18,7 +18,7 @@ function Home(){
            
         <div>
            
-                <p>Tjo från home</p>
+                <p>Tjo från home </p>
         </div>
         </>
         )

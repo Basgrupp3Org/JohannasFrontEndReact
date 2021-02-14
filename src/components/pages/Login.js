@@ -10,6 +10,8 @@ import Button from '../Button'
       this.handleChange = this.handleChange.bind(this);
       this.handleChange2 = this.handleChange2.bind(this);
       this.state = {Username: '', Password: ''};
+
+      
       
       
     }
@@ -78,6 +80,7 @@ import Button from '../Button'
       return (
           <>
         <form onSubmit={this.handleLogin}>
+          <p>{}</p>
         <label>
           Username:
           <input type="text" value={username} onChange={this.handleChange} />
