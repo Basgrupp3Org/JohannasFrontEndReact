@@ -14,30 +14,19 @@ function Navbar() {
     return (
        
        <nav className="nav">
-           <ul>
-            <li>
-                <Link to="/home">Home</Link>
-            </li>
-            <li>
-                <Link to="/history">History</Link>
-            </li>
-            <li>
-                <Link to="/createbudget">Create Budget</Link>
-            </li>
-            <li>
-                <Link to="/observebudget">Observe Budget</Link>
-            </li>
-            <li>
-                <Link to="/registerpurchase">Register Purchase</Link>
-            </li>
-            <li>
-                
-            </li>
-            <li className="userTag">
-                Signed in as: {user}!
-            </li>
+           
+               <p> <Link to="/home">Home</Link></p>
+           
+                <p><Link to="/history">History</Link></p>
+           
+                <p><Link to="/createbudget">Create Budget</Link></p>
+           
+                <p><Link to="/observebudget">Observe Budget</Link></p>
+           
+                <p><Link to="/registerpurchase">Register Purchase</Link></p>
+          
+                <p className="UserP">Signed in as: {user}!</p>
             
-           </ul>
         </nav>
     )
 }

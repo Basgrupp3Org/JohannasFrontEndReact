@@ -39,11 +39,10 @@ import {UserContext} from './components/UserContext'
       <>
      <UserContext.Provider value={this.state.Username}>
       <Router>
-      <Switch>      
-        <Route path='/home' component={Home} />
-       
-        <Route path='/login'><Login addUser={this.addUser}/></Route>
+      <Switch>
         <Route path='/register' component={Register} />
+        <Route path='/login'><Login addUser={this.addUser}/></Route>      
+        <Route path='/home' component={Home} />
         <Route path='/history' component={History} />
         <Route path='/createbudget' component={CreateBudget} />
         <Route path='/observebudget' component={ObserveBudget} />

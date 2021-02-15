@@ -39,3 +39,11 @@
   color: white;
 }
 
+.UserP {
+  
+  position: relative;
+  color: white;
+  display: block;
+  text-align: right;
+  padding-right: 40px;
+}
