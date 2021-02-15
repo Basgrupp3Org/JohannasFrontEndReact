@@ -87,7 +87,7 @@ import Button from '../Button'
       return (
           <>
           <video src='/videos/video-1.mp4' autoPlay loop muted />
-        <form onSubmit={this.handleLogin}>
+        <form className="login__form" onSubmit={this.handleLogin}>
           <p>{}</p>
         <label>
           Username:
