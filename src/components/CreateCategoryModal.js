@@ -29,6 +29,8 @@ function getModalStyle() {
   }));
 
 function CreateCategoryModal(){
+    const classes = useStyles();
+  const [modalStyle] = React.useState(getModalStyle);
 
     const user = useContext(UserContext)
     const [open, setOpen] = useState(false);
@@ -41,7 +43,7 @@ function CreateCategoryModal(){
      }) 
 
     const handleCategory = (event) => {
-        event.peventDefault();
+        event.preventDefault();
 
         let requestObject = {
             
@@ -74,14 +76,13 @@ function CreateCategoryModal(){
 
      return (
          <div className="ccm">
+          
 
-             <Modal open={open}
-                onClose={() => setOpen(false)} 
-                
-                />
-                <div>
+             
+                <div  style={modalStyle} className={classes.paper}>
                     <form className="ccm__createcategory">
                         <center>
+                       
 
                             <Input
                             placeholder="CategoryName"
@@ -97,11 +98,18 @@ function CreateCategoryModal(){
                             value={maxSpent}
                             onChange={(e) => setMaxSpent(e.target.value)} />
 
-                            <Button onClick={handleCategory}/>
+                            <Button onClick={handleCategory}>Submit Category</Button>
+                            
+                    
+                            
+                           
+                            
                            
 
                         </center>
                     </form>
+
+                    
                 </div>
          </div>
      )
