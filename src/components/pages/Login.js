@@ -19,7 +19,7 @@ import Button from '../Button'
 
     componentWillUnmount = () => {
        this.props.addUser(this.state.Username)
-      console.log('Lyckades KANSKE')
+     
     }
 
    

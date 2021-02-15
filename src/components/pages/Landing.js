@@ -17,6 +17,7 @@ export default class Landing extends Component {
            
             <Button myVar="Login"/>
             <Button myVar="Register"/>
+            
     
             </>
         )

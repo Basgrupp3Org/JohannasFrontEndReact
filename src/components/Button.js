@@ -12,14 +12,29 @@ export default class Button extends Component {
     }
 
 
+    setStateForRedirect = () => {
+        this.setState({redirect: './login'})
+    }
+
+    setStateForRedirectRegister = () => {
+        this.setState({redirect: './register'})
+    }
+
+    setStateForRedirectHome = () => {
+        this.setState({redirect: './'})
+    }
     render() {
+
+        if(this.state.redirect){
+            return <Redirect to={this.state.redirect}/>
+          }
         if(this.state.myVar === 'Login' ){
-           return <button><Link to='/login' className="btn btn-primary">{this.state.myVar}</Link></button>
-        // return <button onClick={this.setState({ redirect: '/login'})}></button>
+           return <button onClick={this.setStateForRedirect}>Log In</button>
+        
         } else if(this.state.myVar === 'Register') {
-           return <button><Link to='/register' className="btn btn-primary">{this.state.myVar}</Link></button>
+            return <button onClick={this.setStateForRedirectRegister}>Register</button>
         } else if (this.state.myVar === 'GoHome') {
-            return <button><Link to='/' className="btn btn-primary">{this.state.myVar}</Link></button>
+            return <button onClick={this.setStateForRedirectHome}>Go Home</button>
             
         }
 
