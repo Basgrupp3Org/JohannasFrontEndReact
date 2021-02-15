@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Button, Input } from '@material-ui/core';
 import { UserContext } from './UserContext'
+import CategoryModalHeader from '../images/CategoryModalHeader.png'
 
 
 
@@ -81,7 +82,7 @@ function CreateCategoryModal() {
   return (
     <div className="ccm">
 
-      <Button onClick={() => setOpen(true)}>CreateCategory</Button>
+      <Button onClick={() => setOpen(true)}>Create Category</Button>
 
       <Modal
         open={open}
@@ -90,6 +91,11 @@ function CreateCategoryModal() {
         <div style={modalStyle} className={classes.paper}>
           <form className="ccm__createcategory">
             <center>
+
+              <img
+                src={CategoryModalHeader}
+                alt="" />
+            </center>
 
 
               <Input
@@ -106,9 +112,9 @@ function CreateCategoryModal() {
                 value={maxSpent}
                 onChange={(e) => setMaxSpent(e.target.value)} />
 
-              <Button onClick={handleCategory}>Submit Category</Button>
+              <Button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</Button>
 
-            </center>
+            
           </form>
         </div>
       </Modal>

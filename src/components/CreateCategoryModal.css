@@ -1,5 +1,10 @@
 .ccm__createcategory {
     display: flex;
     flex-direction: column;
+  
   }
   
+  .ccm_SubmitCategory {
+   
+    margin-top: 5px;
+  }

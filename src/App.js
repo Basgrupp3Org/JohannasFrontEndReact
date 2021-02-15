@@ -18,7 +18,7 @@ import {UserContext} from './components/UserContext'
 
   class App extends React.Component {
    constructor(props){
-     super(props)
+    super(props)
     this.state = {Username: ''}
 
     
@@ -51,7 +51,6 @@ import {UserContext} from './components/UserContext'
       </Switch>
       </Router>
       </UserContext.Provider>
-        
       </>
     );
   }
