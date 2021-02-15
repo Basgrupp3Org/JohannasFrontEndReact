@@ -66,7 +66,8 @@ export default class RegisterFields extends React.Component {
       const password = this.state.Password;
       return (
           <>
-        <form onSubmit={this.handleRegister}>
+        <form className="RegisterForm" onSubmit={this.handleRegister}>
+          <fieldset>
         <label>
           Username:
           <input type="text" value={username} onChange={this.handleChange} />
@@ -77,9 +78,10 @@ export default class RegisterFields extends React.Component {
         </label>
         <input type="submit" value="Submit" />
         
-        
+        </fieldset>
       </form>
       <Button myVar='GoHome'/>
+      
       </>
       );
     }
