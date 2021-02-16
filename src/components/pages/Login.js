@@ -18,7 +18,7 @@ import Button from '../Button'
     }
 
     componentWillUnmount = () => {
-       this.props.addUser(this.state.Username)
+      
      
     }
 
@@ -43,7 +43,7 @@ import Button from '../Button'
       } else if (data === true){
           // insert code för hantering av lyckad inloggning
         
-   
+        this.props.addUser(this.state.Username)
         this.setState({ redirect: './home'})
  
       }

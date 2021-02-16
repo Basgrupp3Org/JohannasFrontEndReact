@@ -46,7 +46,7 @@ import {UserContext} from './components/UserContext'
         <Route path='/createbudget' render={() => this.state.Username === '' ? <Redirect to="/"/> : <CreateBudget /> } />
         <Route path='/observebudget' render={() => this.state.Username === '' ? <Redirect to="/"/> : <ObserveBudget /> } />
         <Route path='/registerpurchase' render={() => this.state.Username === '' ? <Redirect to="/"/> : <RegisterPurchase /> } />
-        <Route path='/' component={Landing}/>
+        <Route path='/' component={Landing} />
       </Switch>
       </Router>
       </UserContext.Provider>

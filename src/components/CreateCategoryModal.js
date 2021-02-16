@@ -76,7 +76,6 @@ function CreateCategoryModal() {
         console.error(err);
       })
 
-    console.log(requestObject)
   }
 
   return (
