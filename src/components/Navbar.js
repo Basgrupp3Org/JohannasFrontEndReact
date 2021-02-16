@@ -3,16 +3,24 @@ import {Link} from 'react-router-dom';
 import './Navbar.css'
 import {UserContext} from './UserContext'
 
-function Navbar() {
+function Navbar(props) {
  
     const user = useContext(UserContext)
+    
 
     useEffect(() => {
-        console.log("mouinted with hook in navbar")
+     
+            
+        
+            
+          
      }) 
 
+   
+
+
     return (
-       
+       <>
        <nav className="nav">
            
                <p> <Link to="/home">Home</Link></p>
@@ -26,8 +34,15 @@ function Navbar() {
                 <p><Link to="/registerpurchase">Register Purchase</Link></p>
           
                 <p className="UserP">Signed in as: {user}!</p>
+                
+                <p className="UserP">Balance: {props.balance}!</p>
+                 
+                
+                
             
         </nav>
+        
+        </>
     )
 }
 
