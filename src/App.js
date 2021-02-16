@@ -30,14 +30,6 @@ import {UserContext} from './components/UserContext'
      
     this.setState({Username: childData})
    }
-
-   isAuthenticated = () => {
-     if(this.state.Username = ''){
-       return false;
-     } else {
-       return true;
-     }
-   }
   
 
   render(){
