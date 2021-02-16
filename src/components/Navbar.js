@@ -9,15 +9,8 @@ function Navbar(props) {
     
 
     useEffect(() => {
-     
-            
         
-            
-          
      }) 
-
-   
-
 
     return (
        <>

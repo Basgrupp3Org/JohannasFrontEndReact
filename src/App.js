@@ -2,7 +2,7 @@
 import './App.css';
 import Navbar from './components/Navbar'
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import Home from './components/pages/Home'
 import History from './components/pages/History'
 import CreateBudget from './components/pages/CreateBudget'
@@ -31,6 +31,13 @@ import {UserContext} from './components/UserContext'
     this.setState({Username: childData})
    }
 
+   isAuthenticated = () => {
+     if(this.state.Username = ''){
+       return false;
+     } else {
+       return true;
+     }
+   }
   
 
   render(){
@@ -42,11 +49,11 @@ import {UserContext} from './components/UserContext'
       <Switch>
         <Route path='/register' component={Register} />
         <Route path='/login'><Login addUser={this.addUser}/></Route>      
-        <Route path='/home' component={Home} />
-        <Route path='/history' component={History} />
-        <Route path='/createbudget' component={CreateBudget} />
-        <Route path='/observebudget' component={ObserveBudget} />
-        <Route path='/registerpurchase' component={RegisterPurchase} />
+        <Route path='/home' render={() => this.state.Username === '' ? <Redirect to="/"/> : <Home /> } />
+        <Route path='/history' render={() => this.state.Username === '' ? <Redirect to="/"/> : <History /> } />
+        <Route path='/createbudget' render={() => this.state.Username === '' ? <Redirect to="/"/> : <CreateBudget /> } />
+        <Route path='/observebudget' render={() => this.state.Username === '' ? <Redirect to="/"/> : <ObserveBudget /> } />
+        <Route path='/registerpurchase' render={() => this.state.Username === '' ? <Redirect to="/"/> : <RegisterPurchase /> } />
         <Route path='/' component={Landing}/>
       </Switch>
       </Router>
