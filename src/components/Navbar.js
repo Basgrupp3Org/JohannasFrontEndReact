@@ -6,7 +6,7 @@ import {UserContext} from './UserContext'
 function Navbar(props) {
  
     const user = useContext(UserContext);
-    const context = useContext(UserContext);
+  
     const [balance, setBalance] = useState();
     
 

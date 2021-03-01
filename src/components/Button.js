@@ -11,7 +11,9 @@ export default class Button extends Component {
             
     }
 
-
+    setStateForRedirectToPurchase = () => {
+        this.setState({redirect: '/registerpurchase'})
+    }
     setStateForRedirect = () => {
         this.setState({redirect: './login'})
     }
@@ -33,6 +35,9 @@ export default class Button extends Component {
         
         } else if(this.state.myVar === 'Register') {
             return <button onClick={this.setStateForRedirectRegister}>Register</button>
+        } else if (this.state.myVar === 'RegisterPurchase') {
+            return <button onClick={this.setStateForRedirectToPurchase}>Register Purchase</button>
+            
         } else if (this.state.myVar === 'GoHome') {
             return <button onClick={this.setStateForRedirectHome}>Go Home</button>
             

@@ -11,7 +11,7 @@ export default function CreateBudget() {
            
                 
                 <Navbar/>
-                <p>hej från create budget</p>
+           
                 <CreateCategoryModal />
 
         </div>
