@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from '../Navbar'
 import CreateCategoryModal from '../CreateCategoryModal'
+import CreateBudgetModal from '../CreateBudgetModal'
 
 
 
@@ -13,6 +14,10 @@ export default function CreateBudget() {
                 <Navbar/>
            
                 <CreateCategoryModal />
+
+                <CreateBudgetModal />
+
+
 
         </div>
     )

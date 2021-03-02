@@ -1,0 +1,14 @@
+.cbm__createBudget {
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  .cbm_SubmitBudget {
+   
+    margin-top: 5px;
+  }
+
+  .ImageHeader {
+      max-width: 400px;
+  }
