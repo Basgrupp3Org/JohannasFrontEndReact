@@ -1,0 +1,13 @@
+.rpm__registerpurchase {
+    display: flex;
+    flex-direction: column;
+}
+
+.rpm__submitpurchase {
+    margin-top: 5px;
+}
+
+.rpm__purchasetext {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 48px;
+}

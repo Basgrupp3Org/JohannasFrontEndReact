@@ -63,7 +63,7 @@ function CreateCategoryModal() {
 
 
 
-    fetch('http://localhost:65424/api/Category/', {
+    fetch('http://localhost:65424/api/Category/CreateCategory', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -97,23 +97,23 @@ function CreateCategoryModal() {
             </center>
 
 
-              <Input
-                placeholder="Category Name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)} />
+            <Input
+              placeholder="Category Name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)} />
 
 
 
-              <Input
-                placeholder="Max To Spend"
-                type="number"
-                value={maxSpent}
-                onChange={(e) => setMaxSpent(e.target.value)} />
+            <Input
+              placeholder="Max To Spend"
+              type="number"
+              value={maxSpent}
+              onChange={(e) => setMaxSpent(e.target.value)} />
 
-              <Button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</Button>
+            <Button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</Button>
 
-            
+
           </form>
         </div>
       </Modal>
