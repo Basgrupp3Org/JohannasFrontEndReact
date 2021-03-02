@@ -81,7 +81,7 @@ function CreateCategoryModal() {
   return (
     <div className="ccm">
 
-      <Button onClick={() => setOpen(true)}>Create Category</Button>
+      <button onClick={() => setOpen(true)}>Create Category</button>
 
       <Modal
         open={open}
@@ -111,7 +111,7 @@ function CreateCategoryModal() {
               value={maxSpent}
               onChange={(e) => setMaxSpent(e.target.value)} />
 
-            <Button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</Button>
+            <button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</button>
 
 
           </form>

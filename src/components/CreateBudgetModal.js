@@ -86,7 +86,7 @@ function CreateBudgetModal() {
   return (
     <div className="ccm">
 
-      <Button onClick={() => setOpen(true)}>Create Budget</Button>
+      <button onClick={() => setOpen(true)}>Create Budget</button>
 
       <Modal
         open={open}
@@ -130,7 +130,7 @@ function CreateBudgetModal() {
 
               
 
-              <Button variant="contained" className="ccm__SubmitBudget" onClick={handleCategory} disableElevation>Submit</Button>
+              <button variant="contained" className="ccm__SubmitBudget" onClick={handleCategory} disableElevation>Submit</button>
 
             
           </form>

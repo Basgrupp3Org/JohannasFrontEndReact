@@ -98,14 +98,15 @@ function Navbar(props) {
         <p><Link to="/observebudget">Observe Budget</Link></p>
 
         <p><Link to="/registerpurchase">Register Purchase</Link></p>
-
+        <div className="DivForUserInfo">
         <p className="UserP">Signed in as: {user}!</p>
 
-        {value => <div>The answer is {value}.</div>}
-
+        {/* {value => <div>The answer is {value}.</div>} */}
+       
         <p className="UserP">Balance: {balance}!</p>
 
         <button className="UserA" onClick={handleRefresh}>Refresh</button>
+        </div>
 
 
 

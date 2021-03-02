@@ -40,7 +40,7 @@
  
 }
 
-.UserP {
+/* .UserP {
   
 
   color: white;
@@ -48,12 +48,21 @@
   text-align: right;
   padding-right: 40px;
   
-}
-
+} */
+/* 
 .UserA{
   position: relative;
   color: white;
  display: block;
+  text-align: right;
+  padding-right: 40px;
+  max-height: 30px;
+} */
+
+.DivForUserInfo {
+  color: white;
+ 
+  /* display: block; */
   text-align: right;
   padding-right: 40px;
 }
