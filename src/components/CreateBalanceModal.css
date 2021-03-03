@@ -1,0 +1,8 @@
+.cbm__createBalance {
+    display: flex;
+    flex-direction: column;
+}
+
+.cbm_SubmitBalance {
+    margin-top: 5px;
+}

@@ -1,31 +1,35 @@
 import React, { useState, useContext, useEffect } from 'react'
 import Navbar from '../Navbar'
-import {UserContext} from '../UserContext'
+import { UserContext } from '../UserContext'
+import CreateBalanceModal from '../CreateBalanceModal'
 
 
 
-function Home(){
+function Home() {
 
-     const user = useContext(UserContext);
-     
-     
-     useEffect(() => {
-        
-     }) 
+    const user = useContext(UserContext);
 
-    
-   
-        return (
-            <>
+
+    useEffect(() => {
+
+    })
+
+
+
+    return (
+        <>
             <Navbar />
-           
-        <div>
-        
+
+            <div>
+
                 <p>Tjo från home </p>
-        </div>
+                <CreateBalanceModal />
+
+            </div>
+
         </>
-        )
-    }
+    )
+}
 
 
 export default Home;
