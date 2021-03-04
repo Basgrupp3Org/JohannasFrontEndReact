@@ -8,7 +8,7 @@ export default class History extends Component {
         return (
             <div>
                 <Navbar />
-                <p>hej från history page</p>
+
                 <Button myVar="RegisterPurchase" />
                 <ListPurchases />
             </div>

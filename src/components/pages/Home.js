@@ -22,7 +22,7 @@ function Home() {
 
             <div>
 
-                <p>Tjo från home </p>
+
                 <CreateBalanceModal />
 
             </div>

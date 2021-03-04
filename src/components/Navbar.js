@@ -11,28 +11,6 @@ function Navbar(props) {
 
 
   useEffect(() => {
-
-  })
-
-
-  const handleRespone = (data) => {
-    if (data != balance)
-      setBalance(data)
-
-
-  }
-
-
-
-
-  const handleRefresh = (event) => {
-    event.preventDefault();
-
-
-
-
-
-
     fetch('http://localhost:65424/api/Balance/GetBalanceByUser', {
       method: 'POST',
       headers: {
@@ -47,7 +25,29 @@ function Navbar(props) {
       })
 
 
+  })
+
+
+  const handleRespone = (data) => {
+    if (data != balance)
+      setBalance(data)
+
+
   }
+
+
+
+
+  // const handleRefresh = (event) => {
+  //   event.preventDefault();
+
+
+
+
+
+
+
+  // }
 
   return (
     <>
@@ -63,13 +63,13 @@ function Navbar(props) {
 
         <p><Link to="/registerpurchase">Register Purchase</Link></p>
         <div className="DivForUserInfo">
-        <p className="UserP">Signed in as: {user}!</p>
+          <p className="UserP">Signed in as: {user}!</p>
 
-        {/* {value => <div>The answer is {value}.</div>} */}
-       
-        <p className="UserP">Balance: {balance}!</p>
+          {/* {value => <div>The answer is {value}.</div>} */}
 
-        <button className="UserA" onClick={handleRefresh}>Refresh</button>
+          <p className="UserP">Balance: {balance}!</p>
+
+          {/* <button className="UserA" onClick={handleRefresh}>Refresh</button> */}
         </div>
 
 
