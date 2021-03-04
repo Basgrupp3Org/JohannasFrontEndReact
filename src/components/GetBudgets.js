@@ -8,13 +8,6 @@ export default function GetBudgets() {
   const user = useContext(UserContext);
   const [budgets, setBudgets] = useState([]);
 
-  const handleBudgets = (data) => {
-    data.forEach(element => setBudgets(element.data))
-
-    console.log(budgets)
-
-  }
-
   const handleRefresh = (event) => {
     event.preventDefault();
 
@@ -26,7 +19,7 @@ export default function GetBudgets() {
       body: JSON.stringify(user)
     })
       .then(data => data.json())
-      .then(data => { handleBudgets(data) })
+      .then(data => { setBudgets(data) })
       .catch((err) => {
         console.error(err);
       })
@@ -37,6 +30,26 @@ export default function GetBudgets() {
   return (
     <div>
       <button className="Class" onClick={handleRefresh}>Get Budgets</button>
+
+      <>
+        <div className="budget-container">
+          {budgets.map((data, key) => {
+            return (
+              <div key={key}>
+                {"Budgetnamn: " + data.BudgetName
+                  +
+                  " Max att spendera: " +
+                  data.BudgetSum +
+                  " Startdatum: " +
+                  data.EndDate +
+                  " Slutdatum: " +
+                  data.StartDate
+                }
+              </div>
+            );
+          })}
+        </div>
+      </>
 
     </div>
   )
