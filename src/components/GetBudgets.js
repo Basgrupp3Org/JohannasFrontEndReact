@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { UserContext } from './UserContext'
 
 
@@ -6,7 +6,14 @@ import { UserContext } from './UserContext'
 export default function GetBudgets() {
 
   const user = useContext(UserContext);
-  // const [budgets, setBudgets] = useState([]);
+  const [budgets, setBudgets] = useState([]);
+
+  const handleBudgets = (data) => {
+    data.forEach(element => setBudgets(element.data))
+
+    console.log(budgets)
+
+  }
 
   const handleRefresh = (event) => {
     event.preventDefault();
@@ -19,7 +26,7 @@ export default function GetBudgets() {
       body: JSON.stringify(user)
     })
       .then(data => data.json())
-      .then(data => { console.log(data) })
+      .then(data => { handleBudgets(data) })
       .catch((err) => {
         console.error(err);
       })
@@ -30,6 +37,7 @@ export default function GetBudgets() {
   return (
     <div>
       <button className="Class" onClick={handleRefresh}>Get Budgets</button>
+
     </div>
   )
 }
