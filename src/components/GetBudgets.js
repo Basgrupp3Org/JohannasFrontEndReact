@@ -6,7 +6,7 @@ import { UserContext } from './UserContext'
 export default function GetBudgets() {
 
   const user = useContext(UserContext);
-  const [budgets, setBudgets] = useState([]);
+  // const [budgets, setBudgets] = useState([]);
 
   const handleRefresh = (event) => {
     event.preventDefault();

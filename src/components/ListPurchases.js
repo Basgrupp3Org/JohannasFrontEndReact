@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import { UserContext } from './UserContext'
-import Purchase from './pages/Purchase'
+import Purchase from './Purchase'
 
 export default class ListPurchases extends Component {
   static contextType = UserContext
