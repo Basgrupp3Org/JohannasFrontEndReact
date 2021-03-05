@@ -1,14 +1,13 @@
 .cbm__createBudget {
     display: flex;
     flex-direction: column;
-  
   }
   
-  .cbm_SubmitBudget {
-   
-    margin-top: 5px;
+  .cbm__SubmitBudget {
+    margin-top: 20px;
   }
 
-  .ImageHeader {
-      max-width: 400px;
-  }
+  .cbm__budgettext {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 48px;
+}

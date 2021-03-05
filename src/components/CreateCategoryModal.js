@@ -2,11 +2,8 @@ import './CreateCategoryModal.css';
 import React, { useState, useEffect, useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import { Button, Input } from '@material-ui/core';
+import { Input } from '@material-ui/core';
 import { UserContext } from './UserContext'
-import CategoryModalHeader from '../images/CategoryModalHeader.png'
-
-
 
 function getModalStyle() {
   const top = 50;
@@ -27,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-
   },
 }));
 
@@ -39,7 +35,6 @@ function CreateCategoryModal() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [maxSpent, setMaxSpent] = useState('')
-
 
   useEffect(() => {
 
@@ -55,13 +50,7 @@ function CreateCategoryModal() {
       User: {
         Username: user,
       }
-
-
-
-
     }
-
-
 
     fetch('http://localhost:65424/api/Category/CreateCategory', {
       method: 'POST',
@@ -75,7 +64,6 @@ function CreateCategoryModal() {
       .catch((err) => {
         console.error(err);
       })
-
   }
 
   return (
@@ -90,20 +78,16 @@ function CreateCategoryModal() {
         <div style={modalStyle} className={classes.paper}>
           <form className="ccm__createcategory">
             <center>
-
-              <img
-                src={CategoryModalHeader}
-                alt="" />
+              <h2 className="ccm__categorytext">
+                Create Category
+              </h2>
             </center>
-
 
             <Input
               placeholder="Category Name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)} />
-
-
 
             <Input
               placeholder="Max To Spend"
@@ -113,7 +97,6 @@ function CreateCategoryModal() {
 
             <button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</button>
 
-
           </form>
         </div>
       </Modal>
@@ -122,4 +105,3 @@ function CreateCategoryModal() {
 }
 
 export default CreateCategoryModal;
-

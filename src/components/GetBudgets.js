@@ -26,13 +26,7 @@ export default function GetBudgets() {
 
   })
 
-  // const handleRefresh = (event) => {
-  //   event.preventDefault();
 
-
-
-
-  // }
 
   return (
     <div>
@@ -43,8 +37,10 @@ export default function GetBudgets() {
           {budgets.map((data, key) => {
             return (
               <div key={key}>
+
                 {
                   <Budget BudgetName={data.BudgetName} BudgetSum={data.BudgetSum} EndDate={data.EndDate} StartDate={data.StartDate} />
+
                 }
               </div>
             );
