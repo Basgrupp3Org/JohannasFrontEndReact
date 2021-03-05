@@ -2,7 +2,7 @@ import './RegisterPurchaseModal.css';
 import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import { Button, Input } from '@material-ui/core';
+import { Input } from '@material-ui/core';
 import { UserContext } from './UserContext';
 
 function getModalStyle() {
@@ -71,7 +71,7 @@ function RegisterPurchaseModal() {
 
     return (
         <div className="rpm">
-            <Button onClick={() => setOpen(true)}>Register Purchase</Button>
+            <button onClick={() => setOpen(true)}>Register Purchase</button>
 
             <Modal
                 open={open}
@@ -101,7 +101,7 @@ function RegisterPurchaseModal() {
                             value={date}
                             onChange={(e) => setDate(e.target.value)} />
 
-                        <Button variant="contained" className="rpm__submitpurchase" onClick={handlePurchase} disableElevation>Submit</Button>
+                        <button variant="contained" className="rpm__submitpurchase" onClick={handlePurchase} disableElevation>Submit</button>
                     </form>
                 </div>
             </Modal>

@@ -4,7 +4,11 @@
   
   }
   
-  .ccm_SubmitCategory {
-   
-    margin-top: 5px;
+  .ccm__SubmitCategory {
+    margin-top: 20px;
   }
+
+  .ccm__categorytext {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 48px;
+}
