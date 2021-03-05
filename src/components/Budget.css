@@ -1,8 +1,15 @@
 .budget {
-    border: 2px solid black;
-    max-width: 40%;
+    border: 5px double black;
+    max-width: 30%;
     margin: 10px;
     padding: 5px;
-    
+}
+
+.budget h2 {
+    font-size: 17px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: whitesmoke;
+    padding: 5px;
+    margin: 5px;
 }
 

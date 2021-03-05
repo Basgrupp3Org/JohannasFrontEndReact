@@ -8,13 +8,13 @@ export default function Budget(props) {
                 Name: {props.BudgetName}
             </h2>
             <h2>
-                Max att spendera: {props.BudgetSum}
+                Max to spend: {props.BudgetSum}
             </h2>
             <h2>
-                EndDate: {props.EndDate}
+                End date: {props.EndDate}
             </h2>
             <h2>
-                StartDate: {props.StartDate}
+                Start date: {props.StartDate}
             </h2>
 
         </div>

@@ -67,7 +67,7 @@ function Navbar(props) {
 
           {/* {value => <div>The answer is {value}.</div>} */}
 
-          <p className="UserP">Balance: {balance}!</p>
+          <p className="UserP">Current balance: {balance}!</p>
 
           {/* <button className="UserA" onClick={handleRefresh}>Refresh</button> */}
         </div>

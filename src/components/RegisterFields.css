@@ -1,3 +1,11 @@
 .LoginBtn{
     visibility: hidden;
 }
+
+.RegisterForm {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}

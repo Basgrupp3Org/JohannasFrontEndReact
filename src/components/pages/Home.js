@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import Navbar from '../Navbar'
 import { UserContext } from '../UserContext'
 import CreateBalanceModal from '../CreateBalanceModal'
-
+import './Home.css';
 
 
 function Home() {
@@ -20,8 +20,8 @@ function Home() {
         <>
             <Navbar />
 
-            <div>
-
+            <div className="WelcomeText">
+                <h2>Welcome to J.J.B.A Budgets!</h2>
 
                 <CreateBalanceModal />
 
