@@ -98,7 +98,7 @@ function CreateBalanceModal() {
 
                         <Input
                             placeholder="Date"
-                            type="text"
+                            type="date"
                             value={date}
                             onChange={(e) => setDate(e.target.value)} />
 
