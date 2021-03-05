@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from '../Navbar'
 import Button from '../Button'
 import ListPurchases from '../ListPurchases'
+import RegisterPurchaseModal from '../RegisterPurchaseModal';
 
 export default class History extends Component {
     render() {
@@ -9,8 +10,10 @@ export default class History extends Component {
             <div>
                 <Navbar />
 
-                <Button myVar="RegisterPurchase" />
+
                 <ListPurchases />
+
+                <RegisterPurchaseModal />
             </div>
 
         )

@@ -1,17 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Navbar from './Navbar'
 import { UserContext } from './UserContext'
 import Purchase from './Purchase'
 import { List } from '@material-ui/core';
 import './Purchase.css'
 
-export default function ListPurchases () {
-  
+export default function ListPurchases() {
+
   const user = useContext(UserContext);
   const [purchases, listPurchases] = useState([]);
 
-  const handleRefresh = (event) => {
-    event.preventDefault()
+  useEffect(() => {
+
     fetch('http://localhost:65424/api/Purchase/GetPurchaseList', {
       method: 'POST',
       headers:
@@ -25,17 +25,17 @@ export default function ListPurchases () {
       .catch((err) => {
         console.error(err);
       })
-     
-  }
+
+  })
 
   return (
     <div>
-      <button className="ClassListPurchase" onClick={handleRefresh}>List Purchases</button>
+
       <>
         <div className="purchase-container">
           {purchases.map((data, key) => {
             return (
-              <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date}/>
+              <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date} />
             );
           })}
         </div>
@@ -43,5 +43,5 @@ export default function ListPurchases () {
     </div>
   )
 }
-        
+
 
