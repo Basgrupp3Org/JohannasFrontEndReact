@@ -5,9 +5,6 @@ import Modal from '@material-ui/core/Modal';
 import { Input } from '@material-ui/core';
 import { UserContext } from './UserContext'
 
-
-
-
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -27,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
-
     },
 }));
 
@@ -41,12 +37,11 @@ function CreateBalanceModal() {
     const [date, setDate] = useState('')
     const [balanceLabel, setBalanceLabel] = useState('')
 
-
     useEffect(() => {
 
     })
 
-    const handleCategory = (event) => {
+    const handleBalance = (event) => {
         event.preventDefault();
 
         let requestObject = {
@@ -57,13 +52,7 @@ function CreateBalanceModal() {
             User: {
                 Username: user,
             }
-
-
-
-
         }
-
-
 
         fetch('http://localhost:65424/api/Balance/SetBalanceByUser', {
             method: 'POST',
@@ -77,7 +66,6 @@ function CreateBalanceModal() {
             .catch((err) => {
                 console.error(err);
             })
-
     }
 
     return (
@@ -90,19 +78,17 @@ function CreateBalanceModal() {
                 onClose={() => setOpen(false)} >
 
                 <div style={modalStyle} className={classes.paper}>
-                    <form className="ccm__createcategory">
-
-
-
-
-
+                    <form className="cbm__createBalance">
+                        <center>
+                            <h2 className="cbm__balancetext">
+                                Add Balance
+                            </h2>
+                        </center>
                         <Input
                             placeholder="BalanceLabel"
                             type="text"
                             value={balanceLabel}
                             onChange={(e) => setBalanceLabel(e.target.value)} />
-
-
 
                         <Input
                             placeholder="Sum"
@@ -116,9 +102,7 @@ function CreateBalanceModal() {
                             value={date}
                             onChange={(e) => setDate(e.target.value)} />
 
-                        <button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</button>
-
-
+                        <button variant="contained" className="cbm__SubmitBalance" onClick={handleBalance} disableElevation>Submit</button>
                     </form>
                 </div>
             </Modal>
@@ -127,4 +111,3 @@ function CreateBalanceModal() {
 }
 
 export default CreateBalanceModal;
-

@@ -2,11 +2,8 @@ import './CreateBudgetModal.css';
 import React, { useState, useEffect, useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import { Button, Input } from '@material-ui/core';
+import { Input } from '@material-ui/core';
 import { UserContext } from './UserContext'
-import CreateBudgetModalHeader from '../images/CreateBudgetModalHeader.png'
-
-
 
 function getModalStyle() {
   const top = 50;
@@ -27,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-
   },
 }));
 
@@ -42,13 +38,11 @@ function CreateBudgetModal() {
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
 
-
-
   useEffect(() => {
 
   })
 
-  const handleCategory = (event) => {
+  const handleBudget = (event) => {
     event.preventDefault();
 
     let requestObject = {
@@ -60,13 +54,7 @@ function CreateBudgetModal() {
         Username: user,
       },
       BudgetName: budgetName
-
-
-
-
     }
-
-
 
     fetch('http://localhost:65424/api/Budget/CreateBudget/', {
       method: 'POST',
@@ -80,7 +68,6 @@ function CreateBudgetModal() {
       .catch((err) => {
         console.error(err);
       })
-
   }
 
   return (
@@ -95,44 +82,37 @@ function CreateBudgetModal() {
         <div style={modalStyle} className={classes.paper}>
           <form className="cbm__createBudget">
             <center>
-
-              <img className="ImageHeader"
-                src={CreateBudgetModalHeader}
-                alt="" />
+              <h2 className="cbm__budgettext">
+                Create Budget
+              </h2>
             </center>
 
-
-              <Input
-                placeholder="Budget Name"
-                type="text"
-                value={budgetName}
-                onChange={(e) => setBudgetName(e.target.value)} />
+            <Input
+              placeholder="Budget Name"
+              type="text"
+              value={budgetName}
+              onChange={(e) => setBudgetName(e.target.value)} />
 
             <Input
-                placeholder="Budget Max To Spend"
-                type="text"
-                value={budgetSum}
-                onChange={(e) => setBudgetSum(e.target.value)} />
+              placeholder="Budget Max To Spend"
+              type="text"
+              value={budgetSum}
+              onChange={(e) => setBudgetSum(e.target.value)} />
 
-                <Input
-                placeholder="Budget Start Date"
-                type="text"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)} />
+            <Input
+              placeholder="Budget Start Date"
+              type="text"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)} />
 
-                <Input
-                placeholder="Budget End Date"
-                type="text"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)} />
+            <Input
+              placeholder="Budget End Date"
+              type="text"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)} />
 
+            <button variant="contained" className="ccm__SubmitBudget" onClick={handleBudget} disableElevation>Submit</button>
 
-
-              
-
-              <button variant="contained" className="ccm__SubmitBudget" onClick={handleCategory} disableElevation>Submit</button>
-
-            
           </form>
         </div>
       </Modal>
