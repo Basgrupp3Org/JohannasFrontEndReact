@@ -23,9 +23,12 @@ function Home() {
             <div className="WelcomeText">
                 <h2>Welcome to J.J.B.A Budgets!</h2>
 
+
                 <CreateBalanceModal />
+                <p>Jävla Martin!</p>
 
             </div>
+
 
         </>
     )

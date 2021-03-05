@@ -12,3 +12,8 @@
 body {
     background-color: rgb(180, 180, 180);
 }
+
+.WelcomeText p {
+    color: rgb(180, 180, 180);
+    text-align: right;
+}
