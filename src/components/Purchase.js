@@ -1,22 +1,17 @@
 import React from 'react'
+import './Purchase.css';
 
 export default function Purchase(props) {
     return (
         <div className="purchase">
            <h2 className="purchaseName">
-             {props.PurchaseName}Name
+             Purchase Name: {props.PurchaseName}
            </h2>
            <h2>
-               {props.Price}Price
+           Price: {props.Price}
            </h2>
            <h2>
-               {props.Date}Date
-           </h2>
-           <h2>
-               {props.Store}Store
-           </h2>
-           <h2>
-               {props.Category}
+           Date: {props.Date}
            </h2>
         </div>
     )
