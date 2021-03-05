@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from './UserContext'
+import Budget from './Budget'
 
 
 
@@ -8,8 +9,7 @@ export default function GetBudgets() {
   const user = useContext(UserContext);
   const [budgets, setBudgets] = useState([]);
 
-  const handleRefresh = (event) => {
-    event.preventDefault();
+  useEffect(() => {
 
     fetch('http://localhost:65424/api/Budget/GetBudgetList', {
       method: 'POST',
@@ -24,26 +24,27 @@ export default function GetBudgets() {
         console.error(err);
       })
 
+  })
 
-  }
+  // const handleRefresh = (event) => {
+  //   event.preventDefault();
+
+
+
+
+  // }
 
   return (
     <div>
-      <button className="Class" onClick={handleRefresh}>Get Budgets</button>
+
 
       <>
         <div className="budget-container">
           {budgets.map((data, key) => {
             return (
               <div key={key}>
-                {"Budgetnamn: " + data.BudgetName
-                  +
-                  " Max att spendera: " +
-                  data.BudgetSum +
-                  " Startdatum: " +
-                  data.EndDate +
-                  " Slutdatum: " +
-                  data.StartDate
+                {
+                  <Budget BudgetName={data.BudgetName} BudgetSum={data.BudgetSum} EndDate={data.EndDate} StartDate={data.StartDate} />
                 }
               </div>
             );
