@@ -1,48 +1,47 @@
-import React, { Component } from 'react'
+import React, { useContext, useState } from 'react'
 import Navbar from './Navbar'
 import { UserContext } from './UserContext'
 import Purchase from './Purchase'
+import { List } from '@material-ui/core';
+import './Purchase.css'
 
-export default class ListPurchases extends Component {
-  static contextType = UserContext
-  constructor() {
-    super()
-    this.state = {
-      purchases: []
-    };
-  }
-  handlePurchases = (data) => {
-    this.setState(data[0])
-  }
+export default function ListPurchases () {
+  
+  const user = useContext(UserContext);
+  const [purchases, listPurchases] = useState([]);
 
-  componentDidMount() {
-
+  const handleRefresh = (event) => {
+    event.preventDefault()
     fetch('http://localhost:65424/api/Purchase/GetPurchaseList', {
       method: 'POST',
       headers:
       {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this.context)
+      body: JSON.stringify(user)
     })
       .then(data => data.json())
-      .then(data => { console.log(data) })
+      .then(data => { listPurchases(data) })
       .catch((err) => {
         console.error(err);
       })
-
+     
   }
 
-
-
-  render() {
-    return (<div>
-      <ul>
-        {this.state.purchases.map(purchases => {
-          return <li>{purchases.Price}</li>
-        })}
-      </ul>
-      <Purchase props={this.purchases} />
-    </div>)
-  }
+  return (
+    <div>
+      <button className="ClassListPurchase" onClick={handleRefresh}>List Purchases</button>
+      <>
+        <div className="purchase-container">
+          {purchases.map((data, key) => {
+            return (
+              <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date}/>
+            );
+          })}
+        </div>
+      </>
+    </div>
+  )
 }
+        
+
