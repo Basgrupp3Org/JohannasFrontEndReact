@@ -36,14 +36,14 @@ export default function GetBudgets() {
           {budgets.map((data, key) => {
             return (
               <div key={key}>
-                {"Budgetnamn: " + data.BudgetName
+                {"Budget name: " + data.BudgetName
                   +
-                  " Max att spendera: " +
+                  " Max to spend: " +
                   data.BudgetSum +
-                  " Startdatum: " +
-                  data.EndDate +
-                  " Slutdatum: " +
-                  data.StartDate
+                  " Start date: " +
+                  data.StartDate +
+                  " End date: " +
+                  data.EndDate
                 }
               </div>
             );
