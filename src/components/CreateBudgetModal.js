@@ -101,13 +101,13 @@ function CreateBudgetModal() {
 
             <Input
               placeholder="Budget Start Date"
-              type="text"
+              type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)} />
 
             <Input
               placeholder="Budget End Date"
-              type="text"
+              type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)} />
 
