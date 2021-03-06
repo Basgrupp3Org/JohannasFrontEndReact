@@ -69,7 +69,7 @@ function CreateBalanceModal() {
     }
 
     return (
-        <div className="ccm">
+        <div className="cbm">
 
             <button onClick={() => setOpen(true)}>Add Balance</button>
 

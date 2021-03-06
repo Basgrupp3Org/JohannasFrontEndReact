@@ -29,7 +29,7 @@
 
 /* Change the color of links on hover */
 .nav a:hover {
-  background-color: whitesmoke;
+  background-color: lightyellow;
   color: black;
 }
 

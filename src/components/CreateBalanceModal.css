@@ -1,6 +1,11 @@
+/* .cbm {
+    background-color: lightyellow;
+} */
+
 .cbm__createBalance {
     display: flex;
     flex-direction: column;
+    
 }
 
 .cbm__SubmitBalance {

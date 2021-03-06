@@ -18,5 +18,40 @@ export default function Budget(props) {
             </h2>
 
         </div>
+
+        // <table className="budgetTable">
+        //     <thead>
+        //         <tr>
+        //             <th>
+        //                 Budget name:
+        //             </th>
+        //             <th>
+        //                 Max to spend:
+        //             </th>
+        //             <th>
+        //                 Start date:
+        //             </th>
+        //             <th>
+        //                 End date:
+        //             </th>
+        //         </tr>
+        //     </thead>
+        //     <tbody>
+        //         <tr>
+        //             <td>
+        //                 {props.BudgetName}
+        //             </td>
+        //             <td>
+        //                 {props.BudgetSum}
+        //             </td>
+        //             <td>
+        //                 {props.StartDate}
+        //             </td>
+        //             <td>
+        //                 {props.EndDate}
+        //             </td>
+        //         </tr>
+        //     </tbody>
+        // </table>
     )
 }

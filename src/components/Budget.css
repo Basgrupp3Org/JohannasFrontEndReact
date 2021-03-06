@@ -1,14 +1,35 @@
-.budget {
+/* .budgetTable {
     border: 5px double black;
+    background-color: linen;
     max-width: 30%;
+    
     margin: 10px;
     padding: 5px;
 }
 
-.budget h2 {
+.budgetTable th {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 5px;
+    margin: 5px;
+}
+
+.budgetTable td {
     font-size: 17px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: whitesmoke;
+} */
+
+.budget {
+    border: 5px double black;
+    background-color: lightyellow;
+    max-width: 30%;
+    
+    margin: 10px;
+    padding: 5px;
+}
+.budget h2 {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 5px;
     margin: 5px;
 }

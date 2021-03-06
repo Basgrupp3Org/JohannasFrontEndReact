@@ -71,7 +71,7 @@ function CreateBudgetModal() {
   }
 
   return (
-    <div className="ccm">
+    <div className="cbm">
 
       <button onClick={() => setOpen(true)}>Create Budget</button>
 
