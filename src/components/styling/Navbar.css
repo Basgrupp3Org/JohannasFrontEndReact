@@ -20,15 +20,16 @@
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
+  margin: 5px;
   text-decoration: none;
   font-size: 17px;
-  
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   
 }
 
 /* Change the color of links on hover */
 .nav a:hover {
-  background-color: #ddd;
+  background-color: whitesmoke;
   color: black;
 }
 
@@ -40,15 +41,12 @@
  
 }
 
-/* .UserP {
-  
-
+.UserP {
   color: white;
   display: block;
   text-align: right;
-  padding-right: 40px;
-  
-} */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 /* 
 .UserA{
   position: relative;
@@ -59,10 +57,7 @@
   max-height: 30px;
 } */
 
-.DivForUserInfo {
-  color: white;
- 
-  /* display: block; */
-  text-align: right;
-  padding-right: 40px;
+.DivForUserInfo  {
+  padding: 10px;
+  margin-right: 10px;
 }
