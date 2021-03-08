@@ -2,8 +2,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from './UserContext'
 import Budget from './Budget'
 
-
-
 export default function GetBudgets() {
 
   const user = useContext(UserContext);
@@ -26,28 +24,21 @@ export default function GetBudgets() {
 
   })
 
-
-
   return (
     <div>
-
-
       <>
         <div className="budget-container">
           {budgets.map((data, key) => {
             return (
               <div key={key}>
-
                 {
                   <Budget BudgetName={data.BudgetName} BudgetSum={data.BudgetSum} EndDate={data.EndDate} StartDate={data.StartDate} />
-
                 }
               </div>
             );
           })}
         </div>
       </>
-
     </div>
   )
-        }
+}

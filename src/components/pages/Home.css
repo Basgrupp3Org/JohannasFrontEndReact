@@ -3,7 +3,7 @@
     font-size: 47px;
     padding: 15px;
     margin: 10px;
-    background-color: lightyellow;
+    background-color: whitesmoke;
     color: black;
     max-width: fit-content;
     border: 5px double black;
@@ -11,9 +11,4 @@
 
 body {
     background-color: rgb(180, 180, 180);
-}
-
-.WelcomeText p {
-    color: rgb(180, 180, 180);
-    text-align: right;
 }

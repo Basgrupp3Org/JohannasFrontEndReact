@@ -25,7 +25,6 @@ function Home() {
 
 
                 <CreateBalanceModal />
-                <p>Jävla Martin!</p>
 
             </div>
 

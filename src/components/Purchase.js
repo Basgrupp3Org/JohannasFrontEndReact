@@ -15,6 +15,7 @@ export default function Purchase(props) {
     //    </h2>
     // </div>
     <table className="purchaseTable">
+
       <thead>
         <tr>
           <th>
