@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
-import Navbar from '../Navbar'
-import { UserContext } from '../UserContext'
-import CreateBalanceModal from '../CreateBalanceModal'
+import Navbar from '../tinyComponents/Navbar'
+import { UserContext } from '../contexts/UserContext'
+import CreateBalanceModal from '../modals/CreateBalanceModal'
 
 
 

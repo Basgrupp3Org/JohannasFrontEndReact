@@ -1,5 +1,5 @@
 import React from 'react'
-import './Budget.css';
+import '../styling/Button.css';
 
 export default function Budget(props) {
     return (

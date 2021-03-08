@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Navbar from '../Navbar'
-import GetBudget from '../GetBudgets'
+import Navbar from '../tinyComponents/Navbar'
+import GetBudget from '../tinyComponents/GetBudgets'
 
 export default class ObserveBudget extends Component {
     render() {

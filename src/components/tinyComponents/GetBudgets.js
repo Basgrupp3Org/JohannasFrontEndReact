@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { UserContext } from './UserContext'
+import { UserContext } from '../contexts/UserContext'
 import Budget from './Budget'
 
 
@@ -50,4 +50,4 @@ export default function GetBudgets() {
 
     </div>
   )
-        }
+}

@@ -1,9 +1,9 @@
-import './CreateBudgetModal.css';
+import '../styling/CreateCategoryModal.css';
 import React, { useState, useEffect, useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Input } from '@material-ui/core';
-import { UserContext } from './UserContext'
+import { UserContext } from '../contexts/UserContext'
 
 function getModalStyle() {
   const top = 50;
@@ -27,36 +27,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CreateBudgetModal() {
+function CreateCategoryModal() {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
 
   const user = useContext(UserContext)
   const [open, setOpen] = useState(false);
-  const [budgetName, setBudgetName] = useState('');
-  const [budgetSum, setBudgetSum] = useState('')
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
+  const [name, setName] = useState('');
+  const [maxSpent, setMaxSpent] = useState('')
 
   useEffect(() => {
 
   })
 
-  const handleBudget = (event) => {
+  const handleCategory = (event) => {
     event.preventDefault();
 
     let requestObject = {
 
-      BudgetSum: budgetSum,
-      StartDate: startDate,
-      EndDate: endDate,
+      MaxSpent: maxSpent,
+      Name: name,
       User: {
         Username: user,
-      },
-      BudgetName: budgetName
+      }
     }
 
-    fetch('http://localhost:65424/api/Budget/CreateBudget/', {
+    fetch('http://localhost:65424/api/Category/CreateCategory', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -73,45 +69,33 @@ function CreateBudgetModal() {
   return (
     <div className="ccm">
 
-      <button onClick={() => setOpen(true)}>Create Budget</button>
+      <button onClick={() => setOpen(true)}>Create Category</button>
 
       <Modal
         open={open}
         onClose={() => setOpen(false)} >
 
         <div style={modalStyle} className={classes.paper}>
-          <form className="cbm__createBudget">
+          <form className="ccm__createcategory">
             <center>
-              <h2 className="cbm__budgettext">
-                Create Budget
+              <h2 className="ccm__categorytext">
+                Create Category
               </h2>
             </center>
 
             <Input
-              placeholder="Budget Name"
+              placeholder="Category Name"
               type="text"
-              value={budgetName}
-              onChange={(e) => setBudgetName(e.target.value)} />
+              value={name}
+              onChange={(e) => setName(e.target.value)} />
 
             <Input
-              placeholder="Budget Max To Spend"
-              type="text"
-              value={budgetSum}
-              onChange={(e) => setBudgetSum(e.target.value)} />
+              placeholder="Max To Spend"
+              type="number"
+              value={maxSpent}
+              onChange={(e) => setMaxSpent(e.target.value)} />
 
-            <Input
-              placeholder="Budget Start Date"
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)} />
-
-            <Input
-              placeholder="Budget End Date"
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)} />
-
-            <button variant="contained" className="ccm__SubmitBudget" onClick={handleBudget} disableElevation>Submit</button>
+            <button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</button>
 
           </form>
         </div>
@@ -120,4 +104,4 @@ function CreateBudgetModal() {
   )
 }
 
-export default CreateBudgetModal;
+export default CreateCategoryModal;

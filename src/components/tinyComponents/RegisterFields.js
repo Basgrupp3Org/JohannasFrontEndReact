@@ -1,33 +1,18 @@
 import React from 'react'
-import { Redirect } from 'react-router'
+import { Link } from 'react-router-dom';
+import '../styling/RegisterFields.css';
 import Button from '../tinyComponents/Button'
 
 
-
-
-
-class Login extends React.Component {
+export default class RegisterFields extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
-    this.state = { Username: '', Password: '', redirect: null };
 
-
-
-
+    this.state = { Username: '', Password: '' };
 
   }
-
-  componentWillUnmount = () => {
-
-
-  }
-
-
-
-
-
 
   handleChange(e) {
     this.setState({ Username: e.target.value });
@@ -37,20 +22,20 @@ class Login extends React.Component {
     this.setState({ Password: e.target.value })
   }
 
-  HandleLoginFailOrSuccess = (data) => {
-
-
+  HandleRegisterFailOrSuccess = (data) => {
     if (data === false) {
-      alert("Account does not exist,\ntry again with valid credentials");
-    } else if (data === true) {
-      // insert code för hantering av lyckad inloggning
+      alert("Account alredy exists,\ntry again with different credentials");
 
-      this.props.addUser(this.state.Username)
-      this.setState({ redirect: './home' })
+
+    } else if (data === true) {
+      alert("Account register success!\nLogin to Access Johannas Bank App")
+
+
 
     }
   }
-  handleLogin = (e) => {
+
+  handleRegister = (e) => {
     e.preventDefault()
 
 
@@ -60,9 +45,7 @@ class Login extends React.Component {
 
     }
 
-
-
-    fetch('http://localhost:65424/api/User/Login', {
+    fetch('http://localhost:65424/api/User/Register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -70,39 +53,32 @@ class Login extends React.Component {
       body: JSON.stringify(requestObject)
     })
       .then(data => data.json())
-      .then(data => { this.HandleLoginFailOrSuccess(data) })
+      .then(data => { this.HandleRegisterFailOrSuccess(data) })
       .catch((err) => {
         console.error(err);
       })
 
-
-
+    console.log(requestObject)
   }
 
   render() {
     const username = this.state.Username;
     const password = this.state.Password;
-
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />
-    }
     return (
       <>
-        <video src='/videos/video-1.mp4' autoPlay loop muted />
-        <form className="login__form" onSubmit={this.handleLogin}>
-          <p>{ }</p>
-          <label>
-            Username:
+        <form className="RegisterForm" onSubmit={this.handleRegister}>
+          <fieldset>
+            <label>
+              Username:
           <input type="text" value={username} onChange={this.handleChange} />
-          </label>
-          <label>
-            Password:
+            </label>
+            <label>
+              Password:
         <input type="password" value={password} onChange={this.handleChange2} />
-          </label>
-          <input type="submit" value="Submit" />
+            </label>
+            <input type="submit" value="Submit" />
 
-
-
+          </fieldset>
         </form>
         <Button myVar='GoHome' />
 
@@ -110,5 +86,3 @@ class Login extends React.Component {
     );
   }
 }
-
-export default Login;

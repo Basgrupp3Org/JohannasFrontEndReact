@@ -1,9 +1,9 @@
-import './RegisterPurchaseModal.css';
+import '../styling/RegisterPurchaseModal.css';
 import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Input } from '@material-ui/core';
-import { UserContext } from './UserContext';
+import { UserContext } from '../contexts/UserContext';
 
 function getModalStyle() {
     const top = 50;
