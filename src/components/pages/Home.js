@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import Navbar from '../tinyComponents/Navbar'
 import { UserContext } from '../contexts/UserContext'
 import CreateBalanceModal from '../modals/CreateBalanceModal'
-
+import '../styling/Home.css'
 
 
 function Home() {

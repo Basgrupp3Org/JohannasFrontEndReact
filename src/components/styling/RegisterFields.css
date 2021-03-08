@@ -1,3 +1,38 @@
 .LoginBtn{
     visibility: hidden;
 }
+
+.RegisterForm {
+    display: inline-block;
+    padding: 5px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterForm input[type=submit] {
+    max-width: fit-content;
+    padding: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: inherit;
+  }
+
+  label {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: inherit;
+  }
+  .RegisterForm input[type=text] {
+    padding: 5px;
+    margin-left: 5px;
+    max-width: 100%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: inherit;
+  }
+  .RegisterForm input[type=password] {
+    padding: 5px;
+    margin: 3px 8px;
+    max-width: 30%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: inherit;
+  }
