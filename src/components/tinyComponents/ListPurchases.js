@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
 import Navbar from './Navbar'
-import { UserContext } from './UserContext'
+import { UserContext } from '../contexts/UserContext'
 import Purchase from './Purchase'
 import { List } from '@material-ui/core';
-import './Purchase.css'
+import '../styling/Purchase.css'
 
 export default function ListPurchases() {
 
