@@ -1,4 +1,4 @@
-button{
+/* button{
     
     width: 15%;
     height: 25px;
@@ -8,12 +8,56 @@ button{
     margin-top: 20%;
     text-align: center;
     
+} */
+
+button {
+    float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 12px 12px;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: #333;
+  overflow: hidden;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+button:hover {
+    background-color: whitesmoke;
+    color: black;
+  }
 
 .login__form {
     display: inline-block;
-    background-color: yellow;
+    padding: 5px;
+    background-color: #333;
+    color: white;
     display: flex;
     flex-direction: column;
+}
+.login__form input[type=submit] {
+  max-width: fit-content;
+  padding: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: inherit;
+}
+
+label {
+  font-family: inherit;
+  font-size: inherit;
+}
+.login__form input[type=text] {
+  padding: 5px;
+  margin-left: 5px;
+  max-width: 100%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: inherit;
+}
+.login__form input[type=password] {
+  padding: 5px;
+  margin: 3px 8px;
+  max-width: 30%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: inherit;
 }
