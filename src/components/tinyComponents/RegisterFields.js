@@ -67,18 +67,18 @@ export default class RegisterFields extends React.Component {
     return (
       <>
         <form className="RegisterForm" onSubmit={this.handleRegister}>
-          <fieldset>
-            <label>
-              Username:
-          <input type="text" value={username} onChange={this.handleChange} />
-            </label>
-            <label>
-              Password:
-        <input type="password" value={password} onChange={this.handleChange2} />
-            </label>
-            <input type="submit" value="Submit" />
 
-          </fieldset>
+          <label>
+            Username:
+          <input type="text" value={username} onChange={this.handleChange} />
+          </label>
+          <label>
+            Password:
+        <input type="password" value={password} onChange={this.handleChange2} />
+          </label>
+          <input type="submit" value="Submit" />
+
+
         </form>
         <Button myVar='GoHome' />
 

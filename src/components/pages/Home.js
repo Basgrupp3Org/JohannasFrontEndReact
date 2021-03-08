@@ -20,7 +20,8 @@ function Home() {
         <>
             <Navbar />
 
-            <div>
+            <div className="WelcomeText">
+                <h2>Welcome to J.J.B.A Budgets!</h2>
 
 
                 <CreateBalanceModal />
