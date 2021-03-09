@@ -3,6 +3,7 @@ import Navbar from '../tinyComponents/Navbar'
 import { UserContext } from '../contexts/UserContext'
 import CreateBalanceModal from '../modals/CreateBalanceModal'
 import '../styling/Home.css'
+import HeaderText from '../tinyComponents/HeaderText'
 
 
 function Home() {
@@ -18,13 +19,20 @@ function Home() {
 
     return (
         <>
-            <Navbar />
+            <div className="mainPage">
+                <div>
+                    <HeaderText />
+                </div>
+                <div className="navBar">
+                    <Navbar />
+                </div>
 
-            <div className="WelcomeText">
-                <h2>Welcome to J.J.B.A Budgets!</h2>
 
 
-                <CreateBalanceModal />
+                <div className="balanceModal">
+                    <h3>To add some income press this button below!</h3>
+                    <CreateBalanceModal />
+                </div>
 
             </div>
 

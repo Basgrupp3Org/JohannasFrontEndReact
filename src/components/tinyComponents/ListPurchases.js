@@ -8,7 +8,7 @@ import '../styling/Purchase.css'
 export default function ListPurchases() {
 
   const user = useContext(UserContext);
-  const [purchases, listPurchases] = useState([]);
+  const [purchases, setPurchases] = useState([]);
 
   useEffect(() => {
 
@@ -21,7 +21,7 @@ export default function ListPurchases() {
       body: JSON.stringify(user)
     })
       .then(data => data.json())
-      .then(data => { listPurchases(data) })
+      .then(data => { setPurchases(data) })
       .catch((err) => {
         console.error(err);
       })

@@ -4,9 +4,6 @@ import '../styling/Landing.css'
 
 export default class Landing extends Component {
 
-    onComponentDidMouint() {
-
-    }
 
     render() {
         return (

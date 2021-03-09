@@ -41,6 +41,15 @@ function CreateBalanceModal() {
 
     })
 
+    const afterUpload = () => {
+        setBalanceLabel('')
+        setSum('')
+        setDate('')
+        setOpen(false)
+        window.alert('Your income has succesfully been uploaded!')
+
+    }
+
     const handleBalance = (event) => {
         event.preventDefault();
 
@@ -62,7 +71,7 @@ function CreateBalanceModal() {
             body: JSON.stringify(requestObject)
         })
             .then(data => data.json())
-            .then(data => { console.log(data) })
+            .then(afterUpload())
             .catch((err) => {
                 console.error(err);
             })
@@ -85,18 +94,22 @@ function CreateBalanceModal() {
                             </h2>
                         </center>
                         <Input
+                            required
                             placeholder="BalanceLabel"
                             type="text"
                             value={balanceLabel}
-                            onChange={(e) => setBalanceLabel(e.target.value)} />
+                            onChange={(e) => setBalanceLabel(e.target.value)}
+                        />
 
                         <Input
+                            required
                             placeholder="Sum"
                             type="number"
                             value={sum}
                             onChange={(e) => setSum(e.target.value)} />
 
                         <Input
+                            required
                             placeholder="Date"
                             type="date"
                             value={date}
