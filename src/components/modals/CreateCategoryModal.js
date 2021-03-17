@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Input } from '@material-ui/core';
 import { UserContext } from '../contexts/UserContext'
+import Budget from '../tinyComponents/Budget';
 
 function getModalStyle() {
   const top = 50;
@@ -35,6 +36,7 @@ function CreateCategoryModal() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [maxSpent, setMaxSpent] = useState('')
+  const [budget, setBudget] = useState([]);
 
   useEffect(() => {
 
@@ -44,15 +46,17 @@ function CreateCategoryModal() {
     event.preventDefault();
 
     let requestObject = {
-
       MaxSpent: maxSpent,
       Name: name,
       User: {
         Username: user,
+      },
+      budget: {
+        budget: budget,
       }
     }
 
-    fetch('http://localhost:65424/api/Category/CreateCategory', {
+    fetch('http://localhost:65424/api/Category/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

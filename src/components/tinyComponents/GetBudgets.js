@@ -26,8 +26,6 @@ export default function GetBudgets() {
 
   })
 
-
-
   return (
     <div>
 
@@ -47,7 +45,6 @@ export default function GetBudgets() {
           })}
         </div>
       </>
-
     </div>
   )
 }

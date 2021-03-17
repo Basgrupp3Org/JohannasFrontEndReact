@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import '../styling/Budget.css';
+
 
 export default function Budget(props) {
     return (
@@ -39,7 +41,7 @@ export default function Budget(props) {
             <tbody>
                 <tr>
                     <td>
-                        {props.BudgetName}
+                       <Link to="/detailedviewbudgets">{props.BudgetName}</Link>
                     </td>
                     <td>
                         {props.BudgetSum}
@@ -50,6 +52,7 @@ export default function Budget(props) {
                     <td>
                         {props.EndDate}
                     </td>
+
                 </tr>
             </tbody>
         </table>
