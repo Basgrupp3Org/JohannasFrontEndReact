@@ -52,7 +52,7 @@ function CreateCategoryModal() {
       }
     }
 
-    fetch('http://localhost:65424/api/Category/CreateCategory', {
+    fetch('http://localhost:65424/api/Category/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
