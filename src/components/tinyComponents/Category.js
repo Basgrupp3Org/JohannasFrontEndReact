@@ -2,24 +2,24 @@ import React from 'react'
 import '../styling/Budget.css';
 
 export default function Category(props) {
+
+
     return (
         <>
 
             <button>Edit Category</button>
-            <button>Delete Category</button>
+
             <table className="budgetTable">
                 <thead>
                     <tr>
                         <th>
                             Category name:
-                    </th>
+                        </th>
                         <th>
                             Max spent:
-                    </th>
+                        </th>
                     </tr>
-
                 </thead>
-
                 <tbody>
                     <tr>
                         <td>
@@ -28,8 +28,10 @@ export default function Category(props) {
                         <td>
                             {props.MaxSpent}
                         </td>
-                    </tr>
+                        <td>
 
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 
