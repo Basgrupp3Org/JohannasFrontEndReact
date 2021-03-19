@@ -46,10 +46,7 @@ export default function ListPurchases() {
 
     }
 
-    const handleResponse = (data) => {
-      setPurchases([])
-      setPurchases(data)
-    }
+
 
     fetch('http://localhost:65424/api/Purchase/GetPurchaseListByDate', {
       method: 'POST',
