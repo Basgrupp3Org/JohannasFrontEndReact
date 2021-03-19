@@ -7,9 +7,7 @@ export default function ListCategories() {
   const user = useContext(UserContext);
   const [categories, setCategories] = useState([]);
 
-  const handleDelete = (id) => {
-    console.log(id);
-  }
+
 
   useEffect(() => {
 
@@ -36,7 +34,7 @@ export default function ListCategories() {
             return (
               <div key={key}>
                 {
-                  <Category Name={data.Name} MaxSpent={data.MaxSpent} ><button onClick={() => handleDelete(data.Id)}>Delete</button></Category>
+                  <Category Name={data.Name} MaxSpent={data.MaxSpent} Id={data.Id} />
                 }
               </div>
             );

@@ -3,11 +3,13 @@ import '../styling/Budget.css';
 
 export default function Category(props) {
 
-
+    const handleDelete = (id) => {
+        console.log(id);
+    }
     return (
         <>
 
-            <button>Edit Category</button>
+
 
             <table className="budgetTable">
                 <thead>
@@ -29,7 +31,7 @@ export default function Category(props) {
                             {props.MaxSpent}
                         </td>
                         <td>
-
+                            <button onClick={() => handleDelete(props.Id)}>Delete</button>
                         </td>
                     </tr>
                 </tbody>
