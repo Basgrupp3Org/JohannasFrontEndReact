@@ -37,13 +37,11 @@ function CreateCategoryModal(props) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [maxSpent, setMaxSpent] = useState('')
-  const [budget, setBudget] = useState([]);
 
   useEffect(() => {
 
   })
  
-  setBudget()
 
 
   const handleCategory = (event) => {
@@ -55,9 +53,6 @@ function CreateCategoryModal(props) {
       User: {
         Username: user,
       },
-      Budget: {
-        Budgetname: budget,
-      }
     }
 
     fetch('http://localhost:65424/api/Category/', {

@@ -23,7 +23,7 @@ export default function GetDetailedBudgets() {
       body: JSON.stringify(user)
     })
       .then(data => data.json())
-      .then(data => { console.log(data) })
+      .then(data => { setBudgets(data) })
       .catch((err) => {
         console.error(err);
       })

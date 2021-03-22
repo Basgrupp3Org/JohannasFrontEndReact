@@ -1,7 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../contexts/UserContext'
-import CreateCategoryModal from '../modals/CreateCategoryModal';
 import Budget from './Budget'
 
 
