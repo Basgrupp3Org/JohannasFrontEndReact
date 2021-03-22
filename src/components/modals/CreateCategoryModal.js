@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import { Input } from '@material-ui/core';
 import { UserContext } from '../contexts/UserContext'
 import Budget from '../tinyComponents/Budget';
+import GetBudgets from '../tinyComponents/GetBudgets'
 
 function getModalStyle() {
   const top = 50;
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CreateCategoryModal() {
+function CreateCategoryModal(props) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
 
@@ -41,18 +42,21 @@ function CreateCategoryModal() {
   useEffect(() => {
 
   })
+ 
+  setBudget()
+
 
   const handleCategory = (event) => {
     event.preventDefault();
-
+    
     let requestObject = {
       MaxSpent: maxSpent,
       Name: name,
       User: {
         Username: user,
       },
-      budget: {
-        budget: budget,
+      Budget: {
+        Budgetname: budget,
       }
     }
 

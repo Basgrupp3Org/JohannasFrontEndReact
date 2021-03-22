@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { createElement, useState } from 'react'
 import { Link } from 'react-router-dom';
+import CreateCategoryModal from '../modals/CreateCategoryModal';
 import '../styling/Budget.css';
+import { Grid, Paper } from '@material-ui/core';
+import DetailedBudget from '../tinyComponents/DetailedBudget'
+import GetDetailedBudgets from './GetDetailedBudgets';
+import GetBudget from './GetBudgets'
+import { set } from 'js-cookie';
+
 
 
 export default function Budget(props) {
+  const [detailedBudget, setBudgets] = useState([])
+  const handleClick = (Component) => {
+    setBudgets(Component)
+  }
     return (
         // <div className="budget">
         //     <h2>
@@ -21,8 +32,11 @@ export default function Budget(props) {
 
         // </div>
 
-        <table className="budgetTable">
+          
+        
+        <table className="budgetTable" onClick={() => handleClick(<GetDetailedBudgets />)}>
             <thead>
+               
                 <tr>
                     <th>
                         Budget name:
@@ -41,7 +55,7 @@ export default function Budget(props) {
             <tbody>
                 <tr>
                     <td>
-                       <Link to="/detailedviewbudgets">{props.BudgetName}</Link>
+                       {props.BudgetName}
                     </td>
                     <td>
                         {props.BudgetSum}
@@ -52,9 +66,19 @@ export default function Budget(props) {
                     <td>
                         {props.EndDate}
                     </td>
-
+                    <td>
+                        {props.CategoryName}
+                    </td>
                 </tr>
+                <div>
+                </div>
             </tbody>
+            <thead>
+                <tr>
+                {detailedBudget}
+                </tr>
+            </thead>
         </table>
+        
     )
 }
