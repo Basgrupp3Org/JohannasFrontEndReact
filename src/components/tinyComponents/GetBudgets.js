@@ -26,7 +26,7 @@ export default function GetBudgets() {
         console.error(err);
       })
 
-  })
+  }, [])
 
   return (
     

@@ -4,6 +4,7 @@ import Navbar from '../tinyComponents/Navbar'
 import CreateCategoryModal from '../modals/CreateCategoryModal'
 import CreateBudgetModal from '../modals/CreateBudgetModal'
 import HeaderText from '../tinyComponents/HeaderText'
+import ListCategories from '../tinyComponents/ListCategories'
 
 
 
@@ -26,6 +27,14 @@ export default function CreateBudget() {
                 <h3>To create a budget press the button below!</h3>
                 <CreateBudgetModal />
             </div>
+
+            <div>
+                <ListCategories />
+            </div>
+
+
+
+
         </div>
     )
 }
