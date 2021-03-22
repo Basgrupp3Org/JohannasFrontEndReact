@@ -27,6 +27,14 @@ export default function CreateBudget() {
                 <CreateBudgetModal />
             </div>
 
+<<<<<<< Updated upstream
+=======
+            {/* <div>
+                <ListCategories />
+            </div> */}
+
+
+>>>>>>> Stashed changes
 
 
         </div>
