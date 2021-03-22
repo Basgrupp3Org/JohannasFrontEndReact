@@ -8,24 +8,26 @@ import '../styling/History.css'
 export default class History extends Component {
     render() {
         return (
-            <div className="mainPage">
+            <>
                 <div className="header">
                     <HeaderText />
                 </div>
                 <div className="navBar">
                     <Navbar />
                 </div>
+                <div className="mainPage">
 
-                <div className="listOfPurchases">
 
-                    <ListPurchases />
+                    <div className="listOfPurchases">
+
+                        <ListPurchases />
+                    </div>
+                    <div className="registerPurchaseButton">
+                        <RegisterPurchaseModal />
+                    </div>
+
                 </div>
-                <div className="registerPurchaseButton">
-                    <RegisterPurchaseModal />
-                </div>
-
-            </div>
-
+            </>
         )
     }
 }

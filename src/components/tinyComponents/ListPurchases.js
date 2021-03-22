@@ -73,39 +73,41 @@ export default function ListPurchases() {
 
       <>
         <div className="Filtering">
-          <label>From Date</label>
-          <input
+          <label className="fromDateLabel">From Date</label>
+          <input className="fromDate"
 
             placeholder="From Date"
             type="date"
             value={dateFrom}
             onChange={(e) => setFromDate(e.target.value)} />
-          <label>To Date</label>
+          <label className="toDateLabel">To Date</label>
           <input
-
+            className="toDate"
             placeholder="From Date"
             type="date"
             value={dateTo}
             onChange={(e) => setToDate(e.target.value)} />
 
-          <button onClick={filterPurchases}>Filter</button>
+          <button className="button" onClick={filterPurchases}>Filter</button>
+
+          <div className="purchase-container">
+
+
+            {purchases.map((data, key) => {
+              return (
+                <div key={key}>
+
+                  {
+                    <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date} />
+
+                  }
+                </div>
+              );
+            })}
+          </div>
 
         </div>
-        <div className="purchase-container">
 
-
-          {purchases.map((data, key) => {
-            return (
-              <div key={key}>
-
-                {
-                  <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date} />
-
-                }
-              </div>
-            );
-          })}
-        </div>
       </>
     </div>
   )

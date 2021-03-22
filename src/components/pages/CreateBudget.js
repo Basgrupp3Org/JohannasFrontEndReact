@@ -25,9 +25,11 @@ export default function CreateBudget() {
                 <h3>To create a budget press the button below!</h3>
                 <CreateBudgetModal />
             </div>
+
             <div>
                 <ListCategories />
             </div>
+
         </div>
     )
 }
