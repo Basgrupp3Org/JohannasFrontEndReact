@@ -1,0 +1,33 @@
+.detailedbudgetTable {
+    background-color: whitesmoke;
+    width: 30%;
+    border-collapse: collapse;
+    margin: 10px;
+    padding: 5px;
+}
+
+.detailedbudgetTable th {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 5px;
+    margin: 5px;
+    text-align: left;
+    height: 70px;
+}
+
+.detailedbudgetTable td {
+    font-size: 17px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 5px;
+    margin: 5px;
+}
+
+.detailedbudgetTable, th, td {
+    border: 2px solid black;
+  }
+
+  .detailedbudgetTable {
+      position: relative
+      
+      
+  }

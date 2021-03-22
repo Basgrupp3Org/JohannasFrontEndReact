@@ -4,6 +4,7 @@ import Navbar from '../tinyComponents/Navbar'
 import CreateCategoryModal from '../modals/CreateCategoryModal'
 import CreateBudgetModal from '../modals/CreateBudgetModal'
 import HeaderText from '../tinyComponents/HeaderText'
+import ListCategories from '../tinyComponents/ListCategories'
 
 
 
@@ -27,14 +28,6 @@ export default function CreateBudget() {
                 <CreateBudgetModal />
             </div>
 
-<<<<<<< Updated upstream
-=======
-            {/* <div>
-                <ListCategories />
-            </div> */}
-
-
->>>>>>> Stashed changes
 
 
         </div>

@@ -1,5 +1,7 @@
+import { Grid } from '@material-ui/core';
 import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../contexts/UserContext'
+import CreateCategoryModal from '../modals/CreateCategoryModal';
 import Budget from './Budget'
 
 
@@ -24,30 +26,33 @@ export default function GetBudgets() {
         console.error(err);
       })
 
-  }, []);
 
+
+
+
+
+  }, [])
 
 
   return (
+    
     <div>
-
-
+     
       <>
         <div className="budget-container">
           {budgets.map((data, key) => {
             return (
               <div key={key}>
-
                 {
-                  <Budget BudgetName={data.BudgetName} BudgetSum={data.BudgetSum} EndDate={data.EndDate} StartDate={data.StartDate} />
-
+                  <Budget BudgetName={data.BudgetName} BudgetSum={data.BudgetSum} EndDate={data.EndDate} StartDate={data.StartDate}
+                  />
                 }
               </div>
             );
           })}
         </div>
       </>
-
+      
     </div>
   )
 }
