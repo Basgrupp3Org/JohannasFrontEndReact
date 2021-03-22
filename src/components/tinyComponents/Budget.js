@@ -1,16 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import '../styling/Budget.css';
 import DetailedBudget from '../tinyComponents/DetailedBudget'
 import GetDetailedBudgets from './GetDetailedBudgets';
-
+import { UserContext } from '../contexts/UserContext'
 
 
 
 export default function Budget(props) {
-  const [detailedBudget, setBudgets] = useState([])
-  const handleClick = (Component) => {
-    setBudgets(Component)
-  }
+    const [detailedBudget, setBudgets] = useState([])
+    const user = useContext(UserContext);
+
+
+
+
+    const handleClick = () => {
+        let requestObject = {
+            "User": {
+                "UserName": user
+            },
+            "Category": {
+                "Id": props.cId
+            },
+            "Budget": {
+                "Id": props.Id
+            },
+        }
+        fetch('http://localhost:65424/api/Budget/SetCategoryForBudget', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestObject)
+        })
+            .then(data => data.json())
+            .then(data => { console.log(data) })
+            .catch((err) => {
+                console.error(err);
+            })
+
+    }
     return (
         // <div className="budget">
         //     <h2>
@@ -28,11 +56,11 @@ export default function Budget(props) {
 
         // </div>
 
-          
-        
-        <table className="budgetTable" onClick={() => handleClick(<GetDetailedBudgets />)}>
+
+
+        <table className="budgetTable" onClick={() => handleClick()}>
             <thead>
-               
+
                 <tr>
                     <th>
                         Budget name:
@@ -51,7 +79,7 @@ export default function Budget(props) {
             <tbody>
                 <tr>
                     <td>
-                       {props.BudgetName}
+                        {props.BudgetName}
                     </td>
                     <td>
                         {props.BudgetSum}
@@ -71,10 +99,10 @@ export default function Budget(props) {
             </tbody>
             <thead>
                 <tr>
-                {detailedBudget}
+                    {detailedBudget}
                 </tr>
             </thead>
         </table>
-        
+
     )
 }

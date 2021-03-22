@@ -5,7 +5,7 @@ import Budget from './Budget'
 
 
 
-export default function GetBudgets() {
+export default function GetBudgets(props) {
 
   const user = useContext(UserContext);
   const [budgets, setBudgets] = useState([]);
@@ -34,9 +34,9 @@ export default function GetBudgets() {
 
 
   return (
-    
+
     <div>
-     
+
       <>
         <div className="budget-container">
           {budgets.map((data, key) => {
@@ -44,14 +44,14 @@ export default function GetBudgets() {
               <div key={key}>
                 {
                   <Budget BudgetName={data.BudgetName} BudgetSum={data.BudgetSum} EndDate={data.EndDate} StartDate={data.StartDate}
-                  />
+                    Id={data.Id} cId={props.cId} />
                 }
               </div>
             );
           })}
         </div>
       </>
-      
+
     </div>
   )
 }
