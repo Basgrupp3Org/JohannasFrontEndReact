@@ -28,7 +28,9 @@ export default function CreateBudget() {
                 <CreateBudgetModal />
             </div>
 
-
+            <div>
+                <ListCategories />
+            </div>
 
         </div>
     )
