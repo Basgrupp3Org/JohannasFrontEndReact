@@ -25,7 +25,7 @@ function Navbar(props) {
       })
 
 
-  })
+  }, [])
 
 
   const handleRespone = (data) => {
