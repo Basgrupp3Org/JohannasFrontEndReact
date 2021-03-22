@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../contexts/UserContext'
 import '../styling/Budget.css';
+import Popup from 'reactjs-popup';
+import GetBudget from './GetBudgets'
 
 export default function Category(props) {
 
@@ -28,9 +30,9 @@ export default function Category(props) {
             })
 
     }
+
     return (
         <>
-
 
 
             <table className="budgetTable">
@@ -54,6 +56,11 @@ export default function Category(props) {
                         </td>
                         <td>
                             <button onClick={() => handleDelete(props.Id)}>Delete</button>
+                        </td>
+                        <td>
+                            <Popup trigger={<button>Add To Budget</button>} position="right center">
+                                <div><GetBudget cId={props.Id} /></div>
+                            </Popup>
                         </td>
                     </tr>
                 </tbody>

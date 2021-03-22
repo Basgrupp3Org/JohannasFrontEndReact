@@ -7,8 +7,6 @@ import HeaderText from '../tinyComponents/HeaderText'
 import ListCategories from '../tinyComponents/ListCategories'
 
 
-
-
 export default function CreateBudget() {
     return (
         <div className="mainPage">
