@@ -12,7 +12,7 @@ export default function GetDetailedBudgets() {
   const user = useContext(UserContext);
   const [budgets, setBudgets] = useState([]);
   const [category, setCategory] = useState([]);
- 
+
 
   useEffect(() => {
 
@@ -24,12 +24,12 @@ export default function GetDetailedBudgets() {
       body: JSON.stringify(user)
     })
       .then(data => data.json())
-      .then(data => { setBudgets(data) })
+      .then(data => { console.log(data) })
       .catch((err) => {
         console.error(err);
       })
 
-  },[])
+  }, [])
 
   return (
     <div>
@@ -43,8 +43,7 @@ export default function GetDetailedBudgets() {
 
                 {
                   <DetailedBudget BudgetName={data.BudgetName} BudgetSum={data.BudgetSum} EndDate={data.EndDate} StartDate={data.StartDate}
-                  Id={data.Id}/>
-                  
+                    pId={data.Id} />
                 }
               </div>
             );

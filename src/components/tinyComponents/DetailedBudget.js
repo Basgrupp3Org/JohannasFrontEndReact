@@ -26,8 +26,8 @@ export default function DetailedBudget(props) {
 
         // </div>
 
-          
-        
+
+
         <table className="detailedbudgetTable">
             <thead>
                 <tr>
@@ -51,7 +51,7 @@ export default function DetailedBudget(props) {
             <tbody>
                 <tr>
                     <td>
-                       <Link to="/detailedviewbudgets">{props.BudgetName}</Link>
+                        <Link to="/detailedviewbudgets">{props.BudgetName}</Link>
                     </td>
                     <td>
                         {props.BudgetSum}
@@ -68,6 +68,6 @@ export default function DetailedBudget(props) {
                 </tr>
             </tbody>
         </table>
-        
+
     )
 }
