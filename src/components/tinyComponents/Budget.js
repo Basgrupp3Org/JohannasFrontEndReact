@@ -10,7 +10,10 @@ export default function Budget(props) {
     const [detailedBudget, setBudgets] = useState([])
     const user = useContext(UserContext);
 
-
+    const handleClick2 = (Component) => {
+        console.log(Component)
+        setBudgets(Component)
+    }
 
 
     const handleClick = () => {
@@ -98,6 +101,7 @@ export default function Budget(props) {
                 </div>
             </tbody>
             <thead>
+                <button onClick={() => handleClick2(<GetDetailedBudgets />)}>Detailed View</button>
                 <tr>
                     {detailedBudget}
                 </tr>

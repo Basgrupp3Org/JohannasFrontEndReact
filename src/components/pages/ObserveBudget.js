@@ -8,31 +8,31 @@ import DetailedBudget from '../tinyComponents/DetailedBudget'
 
 
 export default class ObserveBudget extends Component {
-//   state = {budgets: []}
+    //   state = {budgets: []}
 
-     render() {
-//         const addInfo = () => {
-//             console.log('works')
-//             this.setState({
-//             budgets: [...this.state.budgets, <GetDetailedBudgets/>]})
-//    }
+    render() {
+        //         const addInfo = () => {
+        //             console.log('works')
+        //             this.setState({
+        //             budgets: [...this.state.budgets, <GetDetailedBudgets/>]})
+        //    }
 
         return (
-            
+
             <div className="mainPage">
-               
+
                 <div className="header">
                     <HeaderText />
                 </div>
                 <div className="navBar">
                     <Navbar />
                 </div>
-               <div>
-                <GetBudget />
+                <div>
+                    <GetBudget />
                 </div>
-               <div>
-                  
-               </div>
+                <div>
+
+                </div>
             </div>
         )
     }
