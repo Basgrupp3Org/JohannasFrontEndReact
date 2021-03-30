@@ -37,10 +37,31 @@ function RegisterPurchaseModal() {
     const [price, setPrice] = useState('');
     const [purchaseName, setPurchaseName] = useState('');
     const [date, setDate] = useState('');
+    const [budgets, setBudgets] = useState([]);
+    const [selectedOption, setSelectedOption] = useState('');
+
 
     useEffect(() => {
 
-    })
+        fetch('http://localhost:65424/api/Budget/GetBudgetList', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(data => data.json())
+            .then(data => { setBudgets(data) })
+            .catch((err) => {
+                console.error(err);
+            })
+
+
+
+
+
+
+    }, [])
 
     const handlePurchase = (event) => {
         event.preventDefault();
@@ -67,6 +88,39 @@ function RegisterPurchaseModal() {
             .catch((err) => {
                 console.error(err);
             })
+    }
+
+    const handleChange = (e) => {
+        setSelectedOption(e.value)
+
+        let requestObject = {
+
+            Price: price,
+            PurchaseName: purchaseName,
+            Date: date,
+            User: {
+                Username: user,
+            },
+            Budget: {
+                BudgetName: selectedOption
+            }
+        }
+
+        fetch('http://localhost:65424/api/Category/GetCategoryForPurchase', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestObject)
+        })
+            .then(data => data.json())
+            .then(data => { console.log(data) })
+            .catch((err) => {
+                console.error(err);
+            })
+
+
+
     }
 
     return (
@@ -100,6 +154,12 @@ function RegisterPurchaseModal() {
                             type="date"
                             value={date}
                             onChange={(e) => setDate(e.target.value)} />
+
+                        <select value={selectedOption}
+                            onChange={handleChange}>
+
+                            {budgets.map(x => <option value={x.BudgetName}>{x.BudgetName}</option>)}
+                        </select>
 
                         <button variant="contained" className="rpm__submitpurchase" onClick={handlePurchase} disableElevation>Submit</button>
                     </form>
