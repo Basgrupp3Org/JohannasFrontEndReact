@@ -164,7 +164,7 @@ export default function ListPurchases() {
               <div key={key}>
 
                 {
-                  <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date} Category={data.Category.Name} />
+                  <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date} Category={data.Category} />
 
                 }
               </div>
