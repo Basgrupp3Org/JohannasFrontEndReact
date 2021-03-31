@@ -18,7 +18,11 @@ export default function Purchase(props) {
           <th>
             Date:
           </th>
+          <th>
+            Category
+          </th>
         </tr>
+
       </thead>
       <tbody>
         <tr>
@@ -30,6 +34,9 @@ export default function Purchase(props) {
           </td>
           <td>
             {props.Date}
+          </td>
+          <td>
+            {props.Category}
           </td>
         </tr>
       </tbody>
