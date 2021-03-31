@@ -38,7 +38,9 @@ function RegisterPurchaseModal() {
     const [purchaseName, setPurchaseName] = useState('');
     const [date, setDate] = useState('');
     const [budgets, setBudgets] = useState([]);
-    const [selectedOption, setSelectedOption] = useState('');
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('');
+
 
 
     useEffect(() => {
@@ -65,7 +67,7 @@ function RegisterPurchaseModal() {
 
     const handlePurchase = (event) => {
         event.preventDefault();
-
+        console.log(selectedCategory)
         let requestObject = {
 
             Price: price,
@@ -73,6 +75,9 @@ function RegisterPurchaseModal() {
             Date: date,
             User: {
                 Username: user,
+            },
+            Category: {
+                Id: selectedCategory
             }
         }
 
@@ -90,8 +95,9 @@ function RegisterPurchaseModal() {
             })
     }
 
-    const handleChange = (e) => {
-        setSelectedOption(e.value)
+    const handleBudgetChange = (e) => {
+        e.preventDefault();
+
 
         let requestObject = {
 
@@ -102,7 +108,7 @@ function RegisterPurchaseModal() {
                 Username: user,
             },
             Budget: {
-                BudgetName: selectedOption
+                Id: e.target.value
             }
         }
 
@@ -114,14 +120,13 @@ function RegisterPurchaseModal() {
             body: JSON.stringify(requestObject)
         })
             .then(data => data.json())
-            .then(data => { console.log(data) })
+            .then(data => { setCategories(data) })
             .catch((err) => {
                 console.error(err);
             })
-
-
-
     }
+
+
 
     return (
         <div className="rpm">
@@ -155,10 +160,15 @@ function RegisterPurchaseModal() {
                             value={date}
                             onChange={(e) => setDate(e.target.value)} />
 
-                        <select value={selectedOption}
-                            onChange={handleChange}>
+                        <select
+                            onChange={handleBudgetChange}>
 
-                            {budgets.map(x => <option value={x.BudgetName}>{x.BudgetName}</option>)}
+                            {budgets.map(x => <option value={x.Id}>{x.BudgetName}</option>)}
+                        </select>
+                        <select
+                            onChange={(e) => setSelectedCategory(e.target.value)}>
+                            <option></option>
+                            {categories.length ? categories.map(x => <option value={x.Id}>{x.Name}</option>) : undefined}
                         </select>
 
                         <button variant="contained" className="rpm__submitpurchase" onClick={handlePurchase} disableElevation>Submit</button>
