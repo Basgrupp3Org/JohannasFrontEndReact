@@ -11,6 +11,8 @@ export default function ListPurchases() {
   const [purchases, setPurchases] = useState([]);
   const [dateFrom, setFromDate] = useState();
   const [dateTo, setToDate] = useState();
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
 
@@ -28,7 +30,25 @@ export default function ListPurchases() {
         console.error(err);
       })
 
+
+
   }, []);
+
+  useEffect(() => {
+
+    fetch('http://localhost:65424/api/Category/GetCategoryList', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(data => data.json())
+      .then(data => { setCategories(data) })
+      .catch((err) => {
+        console.error(err);
+      })
+  }, [])
 
   const filterPurchases = (e) => {
 
@@ -67,6 +87,42 @@ export default function ListPurchases() {
   }
 
 
+  const filterCategories = (e) => {
+
+    e.preventDefault()
+
+
+    let requestObject = {
+
+      "User": {
+        "Username": user
+
+      },
+      "Category": {
+        "Id": selectedCategory
+      }
+
+    }
+
+
+
+    fetch('http://localhost:65424/api/Purchase/GetPurchaseListByCategory', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestObject)
+    })
+      .then(data => data.json())
+      .then(data => { setPurchases(data) })
+      .catch((err) => {
+        console.error(err);
+      })
+
+    console.log(requestObject)
+
+
+  }
 
   return (
     <div>
@@ -89,27 +145,37 @@ export default function ListPurchases() {
             onChange={(e) => setToDate(e.target.value)} />
 
           <button className="button" onClick={filterPurchases}>Filter</button>
-
-          <div className="purchase-container">
-
-
-            {purchases.map((data, key) => {
-              return (
-                <div key={key}>
-
-                  {
-                    <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date} />
-
-                  }
-                </div>
-              );
-            })}
-          </div>
+        </div>
+        <div className="CategoryFiltering">
+          <label>Choose Category</label>
+          <select
+            onChange={(e) => setSelectedCategory(e.target.value)}>
+            <option></option>
+            {categories.length ? categories.map(x => <option value={x.Id}>{x.Name}</option>) : undefined}
+          </select>
+          <button onClick={filterCategories}>Filter Category</button>
 
         </div>
+        <div className="purchase-container">
+
+
+          {purchases.map((data, key) => {
+            return (
+              <div key={key}>
+
+                {
+                  <Purchase PurchaseName={data.PurchaseName} Price={data.Price} Date={data.Date} />
+
+                }
+              </div>
+            );
+          })}
+        </div>
+
+
 
       </>
-    </div>
+    </div >
   )
 }
 
