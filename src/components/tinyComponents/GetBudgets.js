@@ -25,11 +25,6 @@ export default function GetBudgets(props) {
         console.error(err);
       })
 
-
-
-
-
-
   }, [])
 
 

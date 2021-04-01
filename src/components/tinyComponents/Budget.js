@@ -7,76 +7,40 @@ import { UserContext } from '../contexts/UserContext'
 
 
 export default function Budget(props) {
-    const [detailedBudget, setBudgets] = useState([])
+    const [budgets, setBudgets] = useState([])
     const user = useContext(UserContext);
 
-    const handleClick2 = (Component) => {
-        console.log(Component)
-        setBudgets(Component)
-    }
+    const handleDetailedBudget = (e) => {
+        e.preventDefault()
 
 
-    const handleClick = () => {
-        let requestObject = {
-            "User": {
-                "UserName": user
-            },
-            "Category": {
-                "Id": props.cId
-            },
-            "Budget": {
-                "Id": props.Id
-            },
-        }
-        fetch('http://localhost:65424/api/Budget/SetCategoryForBudget', {
-            method: 'POST',
+        fetch('http://localhost:65424/api/Budget/' + props.Id, {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestObject)
+            }
         })
             .then(data => data.json())
-            .then(data => { console.log(data) })
+            .then(data => { setBudgets(data) })
             .catch((err) => {
                 console.error(err);
             })
 
+
+
     }
+
+
     return (
-        // <div className="budget">
-        //     <h2>
-        //         Name: {props.BudgetName}
-        //     </h2>
-        //     <h2>
-        //         Max att spendera: {props.BudgetSum}
-        //     </h2>
-        //     <h2>
-        //         EndDate: {props.EndDate}
-        //     </h2>
-        //     <h2>
-        //         StartDate: {props.StartDate}
-        //     </h2>
 
-        // </div>
-
-
-
-        <table className="budgetTable" onClick={() => handleClick()}>
+        <table className="budgetTable">
             <thead>
 
                 <tr>
                     <th>
                         Budget name:
                     </th>
-                    <th>
-                        Max to spend:
-                    </th>
-                    <th>
-                        Start date:
-                    </th>
-                    <th>
-                        End date:
-                    </th>
+
                 </tr>
             </thead>
             <tbody>
@@ -84,26 +48,17 @@ export default function Budget(props) {
                     <td>
                         {props.BudgetName}
                     </td>
-                    <td>
-                        {props.BudgetSum}
-                    </td>
-                    <td>
-                        {props.StartDate}
-                    </td>
-                    <td>
-                        {props.EndDate}
-                    </td>
-                    <td>
-                        {props.CategoryName}
-                    </td>
+
                 </tr>
                 <div>
                 </div>
             </tbody>
             <thead>
-                <button onClick={() => handleClick2(<GetDetailedBudgets />)}>Detailed View</button>
+                {budgets.length ? <button onClick={() => setBudgets([])}>Hide View</button> : <button onClick={handleDetailedBudget}>Detailed View</button>}
+
+
                 <tr>
-                    {detailedBudget}
+                    {budgets.length ? <DetailedBudget BudgetName={budgets[0].BudgetName} BudgetSum={budgets[0].BudgetSum} StartDate={budgets[0].StartDate} EndDate={budgets[0].EndDate} Categories={budgets[0].Categories} /> : undefined}
                 </tr>
             </thead>
         </table>

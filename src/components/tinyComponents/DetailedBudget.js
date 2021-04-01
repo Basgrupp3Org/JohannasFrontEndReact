@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CreateCategoryModal from '../modals/CreateCategoryModal';
 import '../styling/Budget.css';
 import { Grid, Paper } from '@material-ui/core';
+import CategoryTable from './CategoryTable'
 
 
 
@@ -10,23 +11,6 @@ export default function DetailedBudget(props) {
 
 
     return (
-        // <div className="budget">
-        //     <h2>
-        //         Name: {props.BudgetName}
-        //     </h2>
-        //     <h2>
-        //         Max att spendera: {props.BudgetSum}
-        //     </h2>
-        //     <h2>
-        //         EndDate: {props.EndDate}
-        //     </h2>
-        //     <h2>
-        //         StartDate: {props.StartDate}
-        //     </h2>
-
-        // </div>
-
-
 
         <table className="detailedbudgetTable">
             <thead>
@@ -51,7 +35,7 @@ export default function DetailedBudget(props) {
             <tbody>
                 <tr>
                     <td>
-                        <Link to="/detailedviewbudgets">{props.BudgetName}</Link>
+                        {props.BudgetName}
                     </td>
                     <td>
                         {props.BudgetSum}
@@ -63,8 +47,10 @@ export default function DetailedBudget(props) {
                         {props.EndDate}
                     </td>
                     <td>
-                        {props.CategoryName}
+                        <CategoryTable Categories={props.Categories} />
                     </td>
+
+
                 </tr>
             </tbody>
         </table>
