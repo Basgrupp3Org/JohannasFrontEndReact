@@ -8,14 +8,10 @@ import DetailedBudget from '../tinyComponents/DetailedBudget'
 
 
 export default class ObserveBudget extends Component {
-    //   state = {budgets: []}
+
 
     render() {
-        //         const addInfo = () => {
-        //             console.log('works')
-        //             this.setState({
-        //             budgets: [...this.state.budgets, <GetDetailedBudgets/>]})
-        //    }
+
 
         return (
 

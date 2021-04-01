@@ -162,12 +162,12 @@ function RegisterPurchaseModal() {
 
                         <select
                             onChange={handleBudgetChange}>
-                            <option>--Choose Budget--</option>
+                            <option selected disabled hidden>--Choose budget--</option>
                             {budgets.map(x => <option value={x.Id}>{x.BudgetName}</option>)}
                         </select>
                         <select
                             onChange={(e) => setSelectedCategory(e.target.value)}>
-                            <option>--Choose Category--</option>
+                            <option selected disabled hidden>--Choose Category--</option>
                             {categories.length ? categories.map(x => <option value={x.Id}>{x.Name}</option>) : undefined}
                         </select>
 
