@@ -3,8 +3,10 @@ import { UserContext } from '../contexts/UserContext'
 import '../styling/Budget.css';
 import Popup from 'reactjs-popup';
 import GetBudget from './GetBudgets'
+import EditCategory from './EditCategory'
+import { withRouter } from 'react-router-dom'
 
-export default function Category(props) {
+function Category(props) {
 
     const user = useContext(UserContext);
 
@@ -28,6 +30,13 @@ export default function Category(props) {
             .catch((err) => {
                 console.error(err);
             })
+
+    }
+
+    const handleEdit = (id) => {
+
+        props.history.push('/edit/' + id);
+
 
     }
 
@@ -62,6 +71,9 @@ export default function Category(props) {
                                 <div><GetBudget cId={props.Id} /></div>
                             </Popup>
                         </td>
+                        <td>
+                            <button onClick={() => handleEdit(props.Id)}>Edit</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -71,4 +83,6 @@ export default function Category(props) {
 
     )
 }
+
+export default withRouter(Category)
 

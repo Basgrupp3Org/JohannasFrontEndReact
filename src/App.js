@@ -11,6 +11,7 @@ import Landing from './components/pages/Landing'
 import Login from './components/pages/Login'
 import Register from './components/pages/Register'
 import { UserContext } from './components/contexts/UserContext'
+import EditCategory from './components/tinyComponents/EditCategory'
 
 
 
@@ -46,6 +47,7 @@ class App extends React.Component {
               <Route path='/createbudget' render={() => this.state.Username === '' ? <Redirect to="/" /> : <CreateBudget />} />
               <Route path='/observebudget' render={() => this.state.Username === '' ? <Redirect to="/" /> : <ObserveBudget />} />
               <Route path='/registerpurchase' render={() => this.state.Username === '' ? <Redirect to="/" /> : <RegisterPurchase />} />
+              <Route exact path="/edit/:id"><EditCategory></EditCategory></Route>
               <Route path='/' component={Landing} />
             </Switch>
           </Router>
