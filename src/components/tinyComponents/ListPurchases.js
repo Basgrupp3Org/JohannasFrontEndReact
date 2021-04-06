@@ -159,7 +159,7 @@ export default function ListPurchases() {
         <div className="purchase-container">
 
 
-          {purchases.map((data, key) => {
+          {purchases.length ? purchases.map((data, key) => {
             return (
               <div key={key}>
 
@@ -169,7 +169,7 @@ export default function ListPurchases() {
                 }
               </div>
             );
-          })}
+          }) : undefined}
         </div>
 
 
