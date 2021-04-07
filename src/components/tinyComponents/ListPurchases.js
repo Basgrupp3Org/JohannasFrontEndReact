@@ -29,9 +29,6 @@ export default function ListPurchases() {
       .catch((err) => {
         console.error(err);
       })
-
-
-
   }, []);
 
   useEffect(() => {
@@ -54,7 +51,6 @@ export default function ListPurchases() {
 
     e.preventDefault()
 
-
     let requestObject = {
 
       "FromDate": dateFrom,
@@ -63,10 +59,7 @@ export default function ListPurchases() {
         "Username": user
 
       }
-
     }
-
-
 
     fetch('http://localhost:65424/api/Purchase/GetPurchaseListByDate', {
       method: 'POST',
@@ -82,15 +75,12 @@ export default function ListPurchases() {
       })
 
     console.log(requestObject)
-
-
   }
 
 
   const filterCategories = (e) => {
 
     e.preventDefault()
-
 
     let requestObject = {
 
@@ -103,8 +93,6 @@ export default function ListPurchases() {
       }
 
     }
-
-
 
     fetch('http://localhost:65424/api/Purchase/GetPurchaseListByCategory', {
       method: 'POST',
@@ -120,8 +108,6 @@ export default function ListPurchases() {
       })
 
     console.log(requestObject)
-
-
   }
 
   return (
@@ -144,16 +130,16 @@ export default function ListPurchases() {
             value={dateTo}
             onChange={(e) => setToDate(e.target.value)} />
 
-          <button className="button" onClick={filterPurchases}>Filter</button>
+          <button className="dateButton" onClick={filterPurchases}>Filter Date</button>
         </div>
-        <div className="CategoryFiltering">
-          <label>Choose Category</label>
-          <select
+        <div className="Filtering">
+          <label className="CategoryLabel">Choose Category</label>
+          <select className="categoryInput"
             onChange={(e) => setSelectedCategory(e.target.value)}>
-            <option></option>
+            <option selected disabled hidden>--empty--</option>
             {categories.length ? categories.map(x => <option value={x.Id}>{x.Name}</option>) : undefined}
           </select>
-          <button onClick={filterCategories}>Filter Category</button>
+          <button className="categoryButton" onClick={filterCategories}>Filter Category</button>
 
         </div>
         <div className="purchase-container">
@@ -171,12 +157,7 @@ export default function ListPurchases() {
             );
           }) : undefined}
         </div>
-
-
-
       </>
     </div >
   )
 }
-
-

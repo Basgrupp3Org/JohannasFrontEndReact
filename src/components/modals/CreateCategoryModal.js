@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CreateCategoryModal() {
+function CreateCategoryModal(props) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
 
@@ -56,8 +56,11 @@ function CreateCategoryModal() {
       },
       body: JSON.stringify(requestObject)
     })
-      .then(data => data.json())
-      .then(data => { console.log(data) })
+
+      .then(data => {
+        setOpen(false)
+        props.onComplete && props.onComplete()
+      })
       .catch((err) => {
         console.error(err);
       })
