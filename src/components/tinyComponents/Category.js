@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { UserContext } from '../contexts/UserContext'
 import '../styling/Budget.css';
 import Popup from 'reactjs-popup';
-import GetBudget from './GetBudgets'
+import GetBudgets from './GetBudgets'
 import EditCategory from './EditCategory'
 import { withRouter } from 'react-router-dom'
 
@@ -68,7 +68,7 @@ function Category(props) {
                         </td>
                         <td>
                             <Popup trigger={<button>Add To Budget</button>} position="right center">
-                                <div><GetBudget cId={props.Id} /></div>
+                                <div><GetBudgets cId={props.Id} /></div>
                             </Popup>
                         </td>
                         <td>
