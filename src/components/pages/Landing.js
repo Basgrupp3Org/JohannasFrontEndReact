@@ -8,7 +8,7 @@ export default class Landing extends Component {
     render() {
         return (
             <>
-                <video src='/videos/video-2.mp4' autoPlay loop muted />
+
 
 
                 <Button myVar="Login" />

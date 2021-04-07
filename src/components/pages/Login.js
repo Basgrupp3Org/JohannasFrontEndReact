@@ -88,7 +88,7 @@ class Login extends React.Component {
     }
     return (
       <>
-        <video src='/videos/video-1.mp4' autoPlay loop muted />
+
         <form className="login__form" onSubmit={this.handleLogin}>
           <p>{ }</p>
           <label>

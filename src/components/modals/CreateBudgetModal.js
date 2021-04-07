@@ -34,7 +34,6 @@ function CreateBudgetModal() {
   const user = useContext(UserContext)
   const [open, setOpen] = useState(false);
   const [budgetName, setBudgetName] = useState('');
-  const [budgetSum, setBudgetSum] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
 
@@ -47,7 +46,7 @@ function CreateBudgetModal() {
 
     let requestObject = {
 
-      BudgetSum: budgetSum,
+
       StartDate: startDate,
       EndDate: endDate,
       User: {
@@ -92,12 +91,6 @@ function CreateBudgetModal() {
               type="text"
               value={budgetName}
               onChange={(e) => setBudgetName(e.target.value)} />
-
-            <Input
-              placeholder="Budget Max To Spend"
-              type="text"
-              value={budgetSum}
-              onChange={(e) => setBudgetSum(e.target.value)} />
 
             <Input
               placeholder="Budget Start Date"
