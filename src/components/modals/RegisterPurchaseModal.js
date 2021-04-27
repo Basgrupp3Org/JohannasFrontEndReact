@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 function RegisterPurchaseModal() {
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
-
+    const [summary, setSummary] = useState('');
     const user = useContext(UserContext)
     const [open, setOpen] = useState(false);
     const [price, setPrice] = useState('');
@@ -126,8 +126,16 @@ function RegisterPurchaseModal() {
             })
     }
 
+    const setPurchaseName1 = (e) => {
+        if(purchaseRegex.exec(e.target.value)){
+            setPurchaseName(e.target.value);
+        }else {
+            setSummary("no numbers allowed");
+        }
+    }
 
-
+    const purchaseRegex = new RegExp('[a-zåäöé]{0,19}')
+    
     return (
         <div className="rpm">
             <button onClick={() => setOpen(true)}>Register Purchase</button>
@@ -142,11 +150,20 @@ function RegisterPurchaseModal() {
                                 Register Purchase
                             </h2>
                         </center>
-                        <Input
-                            placeholder="Purchase Name"
+                        {purchaseName}
+                        {summary}
+                        <input
                             type="text"
+                            name="purchaseName"
+                            // validations={{matchRegexp:purchaseRegex}}
+                            // validationErrors={{matchRegexp:"Hej"}}
+                            pattern="[a-zåäöé]{0,19}"
+                            placeholder="Purchase Name"
                             value={purchaseName}
-                            onChange={(e) => setPurchaseName(e.target.value)} />
+                            // onChange={(e) => setPurchaseName(e.target.value)} 
+                            onChange={setPurchaseName1} 
+                            required></input>
+                        
 
                         <Input
                             placeholder="Price"
@@ -170,6 +187,7 @@ function RegisterPurchaseModal() {
                             <option selected disabled hidden>--Choose Category--</option>
                             {categories.length ? categories.map(x => <option value={x.Id}>{x.Name}</option>) : undefined}
                         </select>
+                        <input type="submit" value="ok"></input>
 
                         <button variant="contained" className="rpm__submitpurchase" onClick={handlePurchase} disableElevation>Submit</button>
                     </form>
