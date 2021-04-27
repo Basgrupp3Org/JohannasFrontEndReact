@@ -15,6 +15,14 @@ export default function ListPurchases() {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
+    
+    let requestObject = {
+
+       
+        "UserName": user
+
+     }
+    
 
     fetch('http://localhost:65424/api/Purchase/GetPurchaseList', {
       method: 'POST',
@@ -22,7 +30,7 @@ export default function ListPurchases() {
       {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(requestObject)
     })
       .then(data => data.json())
       .then(data => { setPurchases(data) })
@@ -31,21 +39,21 @@ export default function ListPurchases() {
       })
   }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    fetch('http://localhost:65424/api/Category/GetCategoryList', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    })
-      .then(data => data.json())
-      .then(data => { setCategories(data) })
-      .catch((err) => {
-        console.error(err);
-      })
-  }, [])
+  // //   fetch('http://localhost:65424/api/Category/GetCategoryList', {
+  // //     method: 'POST',
+  // //     headers: {
+  // //       'Content-Type': 'application/json'
+  // //     },
+  // //     body: JSON.stringify(user)
+  // //   })
+  // //     .then(data => data.json())
+  // //     .then(data => { setCategories(data) })
+  // //     .catch((err) => {
+  // //       console.error(err);
+  // //     })
+  // // }, [])
 
   const filterPurchases = (e) => {
 

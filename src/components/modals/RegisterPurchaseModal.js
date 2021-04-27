@@ -160,7 +160,7 @@ function RegisterPurchaseModal() {
                             value={date}
                             onChange={(e) => setDate(e.target.value)} />
 
-                        <select
+                    <select
                             onChange={handleBudgetChange}>
                             <option selected disabled hidden>--Choose Budget--</option>
                             {budgets.map(x => <option value={x.Id}>{x.BudgetName}</option>)}
