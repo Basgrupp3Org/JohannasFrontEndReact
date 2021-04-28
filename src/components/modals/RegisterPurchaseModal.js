@@ -121,6 +121,7 @@ function RegisterPurchaseModal() {
 
   const setPurchaseName1 = (e) => {
     if (purchaseRegex.exec(e.target.value)) {
+      setSummary("");
       setPurchaseName(e.target.value);
     } else {
       setSummary("no numbers allowed");
