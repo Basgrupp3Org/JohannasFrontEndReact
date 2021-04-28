@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import { Input } from '@material-ui/core';
 import { UserContext } from '../contexts/UserContext'
 
+
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 function CreateCategoryModal(props) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
-
+  const [summary, setSummary] = useState("");
   const user = useContext(UserContext)
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
@@ -65,6 +66,15 @@ function CreateCategoryModal(props) {
         console.error(err);
       })
   }
+  const setCategoryName1 = (e) => {
+    if (CreateCategoryRegex.exec(e.target.value)) {
+      setSummary("")
+      setName(e.target.value);
+    } else {
+      setSummary("no numbers allowed");
+    }
+  };
+  const CreateCategoryRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
 
   return (
     <div className="ccm">
@@ -82,12 +92,16 @@ function CreateCategoryModal(props) {
                 Create Category
               </h2>
             </center>
-
-            <Input
+            {summary}
+            <input
               placeholder="Category Name"
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)} />
+              onChange={setCategoryName1}
+              required
+
+            //onChange={(e) => setName(e.target.value)} 
+            />
 
             <Input
               placeholder="Max To Spend"
