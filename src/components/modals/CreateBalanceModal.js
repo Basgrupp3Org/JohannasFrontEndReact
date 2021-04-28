@@ -80,13 +80,14 @@ function CreateBalanceModal() {
 
     const setBalanceLabel1 = (e) => {
         if (purchaseRegex.exec(e.target.value)) {
+            setSummary("");
             setBalanceLabel(e.target.value);
         } else {
-          setSummary("no numbers allowed");
+            setSummary("no numbers allowed");
         }
-      };
-    
-      const purchaseRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
+    };
+
+    const purchaseRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
 
     return (
 
