@@ -36,6 +36,7 @@ function CreateBalanceModal() {
     const [sum, setSum] = useState('');
     const [date, setDate] = useState('')
     const [balanceLabel, setBalanceLabel] = useState('')
+    const [summary, setSummary] = useState("");
 
     useEffect(() => {
 
@@ -77,7 +78,19 @@ function CreateBalanceModal() {
             })
     }
 
+    const setBalanceLabel1 = (e) => {
+        if (purchaseRegex.exec(e.target.value)) {
+            setBalanceLabel(e.target.value);
+        } else {
+          setSummary("no numbers allowed");
+        }
+      };
+    
+      const purchaseRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
+
     return (
+
+
         <div className="ccm">
 
             <button onClick={() => setOpen(true)}>Add Balance</button>
@@ -93,12 +106,14 @@ function CreateBalanceModal() {
                                 Add Balance
                             </h2>
                         </center>
-                        <Input
+                        {summary}
+                        <input
                             required
                             placeholder="BalanceLabel"
                             type="text"
                             value={balanceLabel}
-                            onChange={(e) => setBalanceLabel(e.target.value)}
+                            // onChange={(e) => setBalanceLabel(e.target.value)}
+                            onChange={setBalanceLabel1}
                         />
 
                         <Input

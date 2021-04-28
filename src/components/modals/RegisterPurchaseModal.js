@@ -127,7 +127,7 @@ function RegisterPurchaseModal() {
     }
   };
 
-  const purchaseRegex = new RegExp("^[a-zåäöé]{0,19}$");
+  const purchaseRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
 
   return (
     <div className="rpm">
