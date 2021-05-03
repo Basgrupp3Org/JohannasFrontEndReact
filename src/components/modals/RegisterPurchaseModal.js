@@ -128,7 +128,17 @@ function RegisterPurchaseModal() {
     }
   };
 
+  const setNumber = (e) => {
+    if (numberRegex.exec(e.target.value)) {
+      setSummary("");
+      setPrice(e.target.value);
+    } else {
+      setSummary("only numbers allowed");
+    }
+  }
+
   const purchaseRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
+  const numberRegex = new RegExp("^[0-9]*$");
 
   return (
     <div className="rpm">
@@ -154,12 +164,13 @@ function RegisterPurchaseModal() {
               onChange={setPurchaseName1}
               required
             ></input>
-
-            <Input
+            {summary}
+            <input
               placeholder="Price"
               type="number"
               value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              // onChange={(e) => setPrice(e.target.value)}
+              onChange={setNumber}
             />
 
             <Input
