@@ -8,6 +8,8 @@ function EditCategory(props) {
     const [category, setCategory] = useState([]);
     const [categoryName, setCategoryName] = useState('');
     const [categoryMaxSpent, setCategorySpent] = useState('');
+    const [summary, setSummary] = useState("");
+    
     const Id = props.match.params.id;
     useEffect(() => {
 
@@ -49,19 +51,25 @@ function EditCategory(props) {
             }, body: JSON.stringify(requestObject)
 
         })
-            .then(data => data.json())
+            // .then(data => data.json())
             .then(data => { setCategory(data) })
             .catch((err) => {
                 console.error(err);
             })
     }
 
-    const goBack = () => {
+    const EditCategoryRegex1 = (e) => {
+        if (EditCategoryRegex.exec(e.target.value)) {
+          setSummary("")
+          setCategoryName(e.target.value);
+        } else {
+          setSummary("no numbers allowed");
+        }
+      };
 
-    }
 
 
-
+    const EditCategoryRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
 
 
     return (
@@ -80,11 +88,25 @@ function EditCategory(props) {
                 <tbody>
                     <tr>
                         <td>
-
-                            <input placeholder={category.Name} onChange={(e) => setCategoryName(e.target.value)} />
+                         {summary}
+                            <input placeholder={category.Name} 
+                            type="text"
+                            value={categoryName} 
+                            onChange={EditCategoryRegex1}
+                            required
+                             />
+                            
+                             
                         </td>
                         <td>
-                            <input placeholder={category.MaxSpent} onChange={(e) => setCategorySpent(e.target.value)} />
+                            <input placeholder={category.MaxSpent}
+                            type="number"
+                            value={categoryMaxSpent}
+                            onChange={(e) => setCategorySpent(e.target.value)}
+                            onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
+                            
+                             />
+
                         </td><td>
                             <button onClick={handleEdit}>Edit</button>
                         </td>
