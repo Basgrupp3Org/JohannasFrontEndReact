@@ -50,17 +50,19 @@ export default function Budget(props) {
                     </td>
 
                 </tr>
-                <div>
-                </div>
             </tbody>
-            <thead>
-                {budgets.length ? <button onClick={() => setBudgets([])}>Hide View</button> : <button onClick={handleDetailedBudget}>Detailed View</button>}
-
-
+            <tbody>
                 <tr>
-                    {budgets.length ? <DetailedBudget BudgetName={budgets[0].BudgetName} BudgetSum={budgets[0].BudgetSum} StartDate={budgets[0].StartDate} EndDate={budgets[0].EndDate} Categories={budgets[0].Categories} /> : undefined}
+                    <td>
+                        {budgets.length ? <button onClick={() => setBudgets([])}>Hide View</button> : <button onClick={handleDetailedBudget}>Detailed View</button>}
+                    </td>
                 </tr>
-            </thead>
+                <tr>
+                    <td>
+                        {budgets.length ? <DetailedBudget BudgetName={budgets[0].BudgetName} BudgetSum={budgets[0].BudgetSum} StartDate={budgets[0].StartDate} EndDate={budgets[0].EndDate} Categories={budgets[0].Categories} /> : undefined}
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
     )

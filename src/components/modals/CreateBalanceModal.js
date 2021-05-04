@@ -56,11 +56,11 @@ function CreateBalanceModal() {
 
         let requestObject = {
 
-            Sum: sum,
-            Date: date,
-            BalanceLabel: balanceLabel,
-            User: {
-                Username: user,
+            "Sum": sum,
+            "Date": date,
+            "BalanceLabel": balanceLabel,
+            "User": {
+                "Username": user
             }
         }
 
@@ -71,7 +71,7 @@ function CreateBalanceModal() {
             },
             body: JSON.stringify(requestObject)
         })
-            .then(data => data.json())
+            // .then(data => data.json())
             .then(afterUpload())
             .catch((err) => {
                 console.error(err);
@@ -133,7 +133,7 @@ function CreateBalanceModal() {
                             value={date}
                             onChange={(e) => setDate(e.target.value)} />
 
-                        <button variant="contained" className="cbm__SubmitBalance" onClick={handleBalance} disableElevation>Submit</button>
+                        <button variant="contained" className="cbm__SubmitBalance" onClick={handleBalance} >Submit</button>
                     </form>
                 </div>
             </Modal>

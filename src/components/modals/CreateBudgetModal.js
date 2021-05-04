@@ -62,8 +62,8 @@ function CreateBudgetModal() {
       },
       body: JSON.stringify(requestObject)
     })
-      .then(data => data.json())
-      .then(data => { console.log(data) })
+      // // .then(data => data.json())
+      // .then(data => { console.log(data) })
       .catch((err) => {
         console.error(err);
       })
@@ -104,7 +104,7 @@ function CreateBudgetModal() {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)} />
 
-            <button variant="contained" className="ccm__SubmitBudget" onClick={handleBudget} disableElevation>Submit</button>
+            <button variant="contained" className="ccm__SubmitBudget" onClick={handleBudget}>Submit</button>
 
           </form>
         </div>
