@@ -8,8 +8,8 @@ import "../styling/Purchase.css";
 export default function ListPurchases() {
   const user = useContext(UserContext);
   const [purchases, setPurchases] = useState([]);
-  const [dateFrom, setFromDate] = useState();
-  const [dateTo, setToDate] = useState();
+  const [dateFrom, setFromDate] = useState('');
+  const [dateTo, setToDate] = useState('');
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
