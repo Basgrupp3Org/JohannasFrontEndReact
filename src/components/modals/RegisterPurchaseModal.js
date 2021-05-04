@@ -128,17 +128,7 @@ function RegisterPurchaseModal() {
     }
   };
 
-  const setNumber = (e) => {
-    if (numberRegex.exec(e.target.value)) {
-      setSummary("");
-      setPrice(e.target.value);
-    } else {
-      setSummary("only numbers allowed");
-    }
-  }
-
   const purchaseRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
-  const numberRegex = new RegExp("^[0-9]*$");
 
   return (
     <div className="rpm">
@@ -169,8 +159,8 @@ function RegisterPurchaseModal() {
               placeholder="Price"
               type="number"
               value={price}
-              // onChange={(e) => setPrice(e.target.value)}
-              onChange={setNumber}
+              onChange={(e) => setPrice(e.target.value)}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
             />
 
             <Input
@@ -184,8 +174,8 @@ function RegisterPurchaseModal() {
               <option selected disabled hidden>
                 --Choose Budget--
               </option>
-              {budgets.map((x) => (
-                <option value={x.Id}>{x.BudgetName}</option>
+              {budgets.map((x, index) => (
+                <option key={index} value={x.Id}>{x.BudgetName}</option>
               ))}
             </select>
             <select onChange={(e) => setSelectedCategory(e.target.value)}>
@@ -193,8 +183,9 @@ function RegisterPurchaseModal() {
                 --Choose Category--
               </option>
               {categories.length
-                ? categories.map((x) => <option value={x.Id}>{x.Name}</option>)
+                ? categories.map((x, index) => <option key={index} value={x.Id}>{x.Name}</option>)
                 : undefined}
+
             </select>
             <input type="submit" value="ok"></input>
 

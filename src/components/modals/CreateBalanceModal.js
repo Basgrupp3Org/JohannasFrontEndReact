@@ -87,17 +87,7 @@ function CreateBalanceModal() {
         }
     };
 
-    const setNumber = (e) => {
-        if (numberRegex.exec(e.target.value)) {
-            setSummary("");
-            setSum(e.target.value);
-        } else {
-            setSummary("only numbers allowed");
-        }
-    }
-
     const purchaseRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
-    const numberRegex = new RegExp("^[0-9]*$");
 
     return (
 
@@ -132,8 +122,8 @@ function CreateBalanceModal() {
                             placeholder="Sum"
                             type="number"
                             value={sum}
-                            // onChange={(e) => setSum(e.target.value)} 
-                            onChange={setNumber}
+                            onChange={(e) => setSum(e.target.value)}
+                            onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
                         />
 
                         <Input

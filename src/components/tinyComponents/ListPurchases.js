@@ -138,14 +138,15 @@ export default function ListPurchases() {
         <div className="Filtering">
           <label className="CategoryLabel">Choose Category</label>
           <select
+            defaultValue={'default'}
             className="categoryInput"
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
-            <option selected disabled hidden>
+            <option value="default" disabled hidden>
               --empty--
             </option>
             {categories.length
-              ? categories.map((x) => <option value={x.Id}>{x.Name}</option>)
+              ? categories.map((x, index) => <option key={index} value={x.Id}>{x.Name}</option>)
               : undefined}
           </select>
           <button className="categoryButton" onClick={filterCategories}>
@@ -155,19 +156,19 @@ export default function ListPurchases() {
         <div className="purchase-container">
           {purchases.length
             ? purchases.map((data, key) => {
-                return (
-                  <div key={key}>
-                    {
-                      <Purchase
-                        PurchaseName={data.PurchaseName}
-                        Price={data.Price}
-                        Date={data.Date}
-                        Category={data.Category}
-                      />
-                    }
-                  </div>
-                );
-              })
+              return (
+                <div key={key}>
+                  {
+                    <Purchase
+                      PurchaseName={data.PurchaseName}
+                      Price={data.Price}
+                      Date={data.Date}
+                      Category={data.Category}
+                    />
+                  }
+                </div>
+              );
+            })
             : undefined}
         </div>
       </>
