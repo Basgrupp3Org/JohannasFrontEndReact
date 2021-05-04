@@ -129,7 +129,7 @@ function Category(props) {
                             <Popup trigger={<button>Add To Budget</button>} position="right center">
                                 <div><select onChange={(e) => handleChosen(e, props.Id)}>
                                     <option selected disabled hidden>--Choose Budget--</option>
-                                    {budget.length ? budget.map(x => <option value={x.Id}>{x.BudgetName}</option>) : undefined}
+                                    {budget.length ? budget.map(x => <option key={x} value={x.Id}>{x.BudgetName}</option>) : undefined}
                                 </select>
                                 </div>
                             </Popup>

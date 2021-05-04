@@ -74,16 +74,8 @@ function CreateCategoryModal(props) {
       setSummary("no numbers allowed");
     }
   };
-  const setNumber = (e) => {
-    if (numberRegex.exec(e.target.value)) {
-      setSummary("");
-      setMaxSpent(e.target.value);
-    } else {
-      setSummary("only numbers allowed");
-    }
-  }
+
   const CreateCategoryRegex = new RegExp("^[A-ZÅÄÖÈa-zåäöé ]{0,29}$");
-  const numberRegex = new RegExp("^[0-9 ]{0,10}$");
 
   return (
     <div className="ccm">
@@ -116,8 +108,8 @@ function CreateCategoryModal(props) {
               placeholder="Max To Spend"
               type="number"
               value={maxSpent}
-              // onChange={(e) => setMaxSpent(e.target.value)}
-              onChange={setNumber}
+              onChange={(e) => setMaxSpent(e.target.value)}
+              onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
             />
 
             <button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</button>
