@@ -59,7 +59,6 @@ function RegisterPurchaseModal() {
 
   const handlePurchase = (event) => {
     event.preventDefault();
-    console.log(selectedCategory);
     let requestObject = {
       Price: price,
       PurchaseName: purchaseName,
@@ -79,14 +78,19 @@ function RegisterPurchaseModal() {
       },
       body: JSON.stringify(requestObject),
     })
-      // .then((data) => data.json())
-      // .then((data) => {
-      //   console.log(data);
-      // })
+      .then(ResetForm())
       .catch((err) => {
         console.error(err);
       });
   };
+
+  const ResetForm = (data) => {
+    setPrice('')
+    setPurchaseName('')
+    setDate('')
+    setOpen(false)
+    window.alert('Your purchase has succesfully been uploaded!')
+  }
 
   const handleBudgetChange = (e) => {
     e.preventDefault();
@@ -140,21 +144,17 @@ function RegisterPurchaseModal() {
             <center>
               <h2 className="rpm__purchasetext">Register Purchase</h2>
             </center>
-            {/* {purchaseName} */}
             {summary}
             <input
               type="text"
               name="purchaseName"
-              // validations={{matchRegexp:purchaseRegex}}
-              // validationErrors={{matchRegexp:"Hej"}}
               pattern="^[a-zåäöé]{0,19}$"
               placeholder="Purchase Name"
               value={purchaseName}
-              // onChange={(e) => setPurchaseName(e.target.value)}
               onChange={setPurchaseName1}
               required
             ></input>
-            {summary}
+
             <input
               placeholder="Price"
               type="number"
@@ -187,7 +187,7 @@ function RegisterPurchaseModal() {
                 : undefined}
 
             </select>
-            <input type="submit" value="ok"></input>
+
 
             <button
               variant="contained"
