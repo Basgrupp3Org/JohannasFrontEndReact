@@ -127,8 +127,8 @@ function Category(props) {
                         </td>
                         <td>
                             <Popup trigger={<button>Add To Budget</button>} position="right center">
-                                <div><select onChange={(e) => handleChosen(e, props.Id)}>
-                                    <option selected disabled hidden>--Choose Budget--</option>
+                                <div><select defaultValue={'default'} onChange={(e) => handleChosen(e, props.Id)}>
+                                    <option value="default" disabled hidden>--Choose Budget--</option>
                                     {budget.length ? budget.map(x => <option key={x} value={x.Id}>{x.BudgetName}</option>) : undefined}
                                 </select>
                                 </div>

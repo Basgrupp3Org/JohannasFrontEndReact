@@ -112,7 +112,7 @@ function CreateCategoryModal(props) {
               onKeyDown={(evt) => ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()}
             />
 
-            <button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory} disableElevation>Submit</button>
+            <button variant="contained" className="ccm__SubmitCategory" onClick={handleCategory}>Submit</button>
 
           </form>
         </div>

@@ -5,7 +5,7 @@ export default function CategoryTable(props) {
     return (
 
 
-        <div>
+        <>
             <table className="categoryTable">
                 <thead>
                     <tr>
@@ -21,54 +21,47 @@ export default function CategoryTable(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        {props.Categories.map((data, key) => {
+                    {props.Categories.map((data, key) => {
 
-                            if (data.CurrentSpent < data.MaxSpent) {
-                                return (
-                                    <div key={key}>
-                                        {<tr>
-                                            <td>
-                                                {data.Name}
-                                            </td>
-                                            <td style={{ backgroundColor: 'green' }}>
+                        if (data.CurrentSpent < data.MaxSpent) {
+                            return (
 
-                                                {data.CurrentSpent}
-                                            </td>
-                                            <td>
-                                                {data.MaxSpent}
-                                            </td>
-                                        </tr>
-                                        }
-                                    </div>
-                                );
+                                <tr key={key}>
+                                    <td>
+                                        {data.Name}
+                                    </td>
+                                    <td style={{ backgroundColor: 'green' }}>
 
-                            } else {
-                                return (
-                                    <div key={key}>
-                                        {<tr>
-                                            <td>
-                                                {data.Name}
-                                            </td>
-                                            <td style={{ backgroundColor: 'red' }}>
+                                        {data.CurrentSpent}
+                                    </td>
+                                    <td>
+                                        {data.MaxSpent}
+                                    </td>
+                                </tr>
+                            );
 
-                                                {data.CurrentSpent}
-                                            </td>
-                                            <td>
-                                                {data.MaxSpent}
-                                            </td>
-                                        </tr>
-                                        }
-                                    </div>
-                                );
+                        } else {
+                            return (
+                                <tr key={key}>
+                                    <td>
+                                        {data.Name}
+                                    </td>
+                                    <td style={{ backgroundColor: 'red' }}>
 
-                            }
+                                        {data.CurrentSpent}
+                                    </td>
+                                    <td>
+                                        {data.MaxSpent}
+                                    </td>
+                                </tr>
+                            );
 
-                        })}
-                    </tr>
+                        }
+
+                    })}
                 </tbody>
             </table>
-        </div>
+        </>
 
 
     )

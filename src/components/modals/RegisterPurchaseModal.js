@@ -79,10 +79,10 @@ function RegisterPurchaseModal() {
       },
       body: JSON.stringify(requestObject),
     })
-      .then((data) => data.json())
-      .then((data) => {
-        console.log(data);
-      })
+      // .then((data) => data.json())
+      // .then((data) => {
+      //   console.log(data);
+      // })
       .catch((err) => {
         console.error(err);
       });
@@ -170,16 +170,16 @@ function RegisterPurchaseModal() {
               onChange={(e) => setDate(e.target.value)}
             />
 
-            <select onChange={handleBudgetChange}>
-              <option selected disabled hidden>
+            <select defaultValue={'default'} onChange={handleBudgetChange}>
+              <option value="default" disabled hidden>
                 --Choose Budget--
               </option>
               {budgets.map((x, index) => (
                 <option key={index} value={x.Id}>{x.BudgetName}</option>
               ))}
             </select>
-            <select onChange={(e) => setSelectedCategory(e.target.value)}>
-              <option selected disabled hidden>
+            <select defaultValue={'default'} onChange={(e) => setSelectedCategory(e.target.value)}>
+              <option value="default" disabled hidden>
                 --Choose Category--
               </option>
               {categories.length
@@ -193,7 +193,6 @@ function RegisterPurchaseModal() {
               variant="contained"
               className="rpm__submitpurchase"
               onClick={handlePurchase}
-              disableElevation
             >
               Submit
             </button>
