@@ -34,12 +34,8 @@
 }
 
 
-/* Add a color to the active/current link */
-.nav a.active {
-  background-color: #4CAF50;
-  color: white;
- 
-}
+
+
 
 .UserP {
   color: white;
@@ -60,4 +56,16 @@
 .DivForUserInfo  {
   padding: 10px;
   margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+/* Add a color to the active/current link */
+.nav a.active {
+  background-color: gray;
+  color: white;
+ 
 }

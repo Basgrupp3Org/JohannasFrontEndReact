@@ -13,7 +13,7 @@ export default class History extends Component {
                     <HeaderText />
                 </div>
                 <div className="navBar">
-                    <Navbar />
+                    <Navbar string="history" />
                 </div>
                 <div className="mainPage">
 

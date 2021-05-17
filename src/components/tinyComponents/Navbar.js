@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../styling/Navbar.css'
 import { UserContext } from '../contexts/UserContext'
 
@@ -7,10 +7,14 @@ function Navbar(props) {
 
   const user = useContext(UserContext);
 
+
   const [balance, setBalance] = useState();
 
 
   useEffect(() => {
+
+
+
     fetch('http://localhost:65424/api/Balance/GetBalanceByUser', {
       method: 'POST',
       headers: {
@@ -51,32 +55,49 @@ function Navbar(props) {
 
   return (
     <>
-      <nav className="nav">
+      <div>
+        <nav className="nav">
 
-        <p> <Link to="/home">Home</Link></p>
-
-        <p><Link to="/history">History</Link></p>
-
-        <p><Link to="/createbudget">Create Budget</Link></p>
-
-        <p><Link to="/observebudget">Observe Budget</Link></p>
-
-        <p><Link to="/registerpurchase">Register Purchase</Link></p>
-        <div className="DivForUserInfo">
-          <p className="UserP">Signed in as: {user}!</p>
-
-          {/* {value => <div>The answer is {value}.</div>} */}
-
-          <p className="UserP">Balance: {balance}!</p>
-
-          {/* <button className="UserA" onClick={handleRefresh}>Refresh</button> */}
-        </div>
-
-
+          <ul>
+            <li>
+              <NavLink to="/home" >Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/history" >History</NavLink>
+            </li>
+            <li>
+              <NavLink to="/createbudget">Create Budget</NavLink>
+            </li>
+            <li>
+              <NavLink to="/observebudget">Observe Budget</NavLink>
+            </li>
+            <li>
+              <NavLink to="/registerpurchase" >Register Purchase</NavLink>
+            </li>
+          </ul>
 
 
-      </nav>
 
+
+
+
+
+
+          <div className="DivForUserInfo">
+            <p className="UserP">Signed in as: {user}!</p>
+
+            {/* {value => <div>The answer is {value}.</div>} */}
+
+            <p className="UserP">Balance: {balance}!</p>
+
+            {/* <button className="UserA" onClick={handleRefresh}>Refresh</button> */}
+          </div>
+
+
+
+
+        </nav>
+      </div>
     </>
   )
 }

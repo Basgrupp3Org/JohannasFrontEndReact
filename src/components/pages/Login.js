@@ -13,10 +13,6 @@ class Login extends React.Component {
     this.handleChange2 = this.handleChange2.bind(this);
     this.state = { Username: '', Password: '', redirect: null };
 
-
-
-
-
   }
 
 

@@ -24,7 +24,7 @@ function Home() {
                     <HeaderText />
                 </div>
                 <div className="navBar">
-                    <Navbar />
+                    <Navbar string="home" />
                 </div>
 
 
