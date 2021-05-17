@@ -84,6 +84,7 @@ function RegisterPurchaseModal() {
       });
   };
 
+  // reset fields and close modal 
   const ResetForm = (data) => {
     setPrice('')
     setPurchaseName('')
